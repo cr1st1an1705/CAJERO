@@ -1,0 +1,36 @@
+services:
+  mysql-primary:
+    image: mysql:8.4
+    container_name: mysql-primary-cajero
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: cajero_atm
+      MYSQL_USER: cajero_user
+      MYSQL_PASSWORD: cajero_pass
+    ports:
+      - "3307:3306"
+    volumes:
+      - ./mysql/primary/conf.d:/etc/mysql/conf.d
+      - ./mysql/primary/init:/docker-entrypoint-initdb.d
+      - mysql_primary_data:/var/lib/mysql
+
+  mysql-secondary:
+    image: mysql:8.4
+    container_name: mysql-secondary-cajero
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: cajero_atm
+      MYSQL_USER: cajero_user
+      MYSQL_PASSWORD: cajero_pass
+    ports:
+      - "3308:3306"
+    volumes:
+      - ./mysql/secondary/conf.d:/etc/mysql/conf.d
+      - ./mysql/secondary/init:/docker-entrypoint-initdb.d
+      - mysql_secondary_data:/var/lib/mysql
+
+volumes:
+  mysql_primary_data:
+  mysql_secondary_data:
