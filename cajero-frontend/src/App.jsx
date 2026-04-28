@@ -1,0 +1,513 @@
+import { useState } from 'react'
+import Keypad from './Keypad'
+import './App.css'
+
+const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL || '').replace(/\/$/, '')
+const ATM_ORIGEN = 'ATM-LOCAL'
+
+const VIEWS = {
+  WELCOME: 'WELCOME',
+  PIN: 'PIN',
+  MENU: 'MENU',
+  WITHDRAW: 'WITHDRAW',
+  BALANCE: 'BALANCE',
+  SUCCESS: 'SUCCESS',
+}
+
+async function apiRequest(path, { method = 'GET', token, body } = {}) {
+  const headers = {}
+
+  if (token) {
+    headers.Authorization = `Bearer ${token}`
+  }
+
+  if (body) {
+    headers['Content-Type'] = 'application/json'
+  }
+
+  const response = await fetch(`${API_BASE_URL}${path}`, {
+    method,
+    headers,
+    body: body ? JSON.stringify(body) : undefined,
+  })
+
+  let payload = null
+  try {
+    payload = await response.json()
+  } catch {
+    payload = null
+  }
+
+  if (!response.ok) {
+    const detail = payload?.detail || payload?.mensaje || 'Error al comunicarse con el backend'
+    throw new Error(detail)
+  }
+
+  return payload
+}
+
+function WelcomeScreen({ accountNumber, onChangeAccount, onInsertCard, status }) {
+  return (
+    <div className="screen">
+      <h1>Cajero Automático</h1>
+      <p className="screen-subtitle">Ingresa tu número de cuenta para comenzar</p>
+      <label htmlFor="numero-cuenta" className="atm-screen__label">Número de cuenta</label>
+      <input
+        id="numero-cuenta"
+        className="screen-input"
+        type="text"
+        inputMode="numeric"
+        placeholder="Ej. 12345"
+        value={accountNumber}
+        onChange={(event) => onChangeAccount(event.target.value.replace(/\D/g, ''))}
+      />
+      {status ? <p className="screen-status">{status}</p> : null}
+      <button
+        type="button"
+        className="screen-action"
+        onClick={onInsertCard}
+      >
+        Insertar tarjeta
+      </button>
+    </div>
+  )
+}
+
+function PinScreen({ pin, status, isError, onPinInput, onCancel, isLoading }) {
+  const maskedPin = pin.replace(/./g, '•')
+
+  return (
+    <div className="screen screen--fade-in">
+      <h1>Verificación de PIN</h1>
+      <p className="screen-subtitle">Digita tu clave para continuar</p>
+      <div className={`atm-screen ${isError ? 'atm-screen--error' : ''}`} aria-live="polite" aria-atomic="true">
+        <span className="atm-screen__label">PIN</span>
+        <output className="atm-screen__value">{maskedPin || '----'}</output>
+        <p className={`atm-screen__status ${isError ? 'atm-screen__status--error' : ''}`}>{status}</p>
+      </div>
+      {!isLoading ? <Keypad onKeyPress={onPinInput} /> : null}
+      <button type="button" className="screen-action screen-action--secondary" onClick={onCancel}>
+        Cancelar
+      </button>
+    </div>
+  )
+}
+
+function MenuScreen({ onGoToWithdraw, onGoToBalance, onLogout, isLoading }) {
+  return (
+    <div className="screen">
+      <h1>Menú principal</h1>
+      <p className="screen-subtitle">Selecciona una operación</p>
+      <div className="menu-actions" role="group" aria-label="Operaciones disponibles">
+        <button type="button" className="screen-action" onClick={onGoToWithdraw} disabled={isLoading}>
+          Retirar efectivo
+        </button>
+        <button type="button" className="screen-action" onClick={onGoToBalance} disabled={isLoading}>
+          Consultar saldo
+        </button>
+      </div>
+      <button type="button" className="screen-action screen-action--secondary" onClick={onLogout} disabled={isLoading}>
+        Cerrar sesión
+      </button>
+    </div>
+  )
+}
+
+function WithdrawScreen({ balance, onWithdraw, onBack, isLoading }) {
+  const options = [50, 100, 200, 300, 500, 1000, 1500, 2000]
+  const [customAmount, setCustomAmount] = useState('')
+  const [customAmountError, setCustomAmountError] = useState('')
+
+  const handleCustomWithdrawal = () => {
+    const amount = Number(customAmount)
+
+    if (!Number.isInteger(amount) || amount <= 0) {
+      setCustomAmountError('Ingresa un monto entero mayor que cero')
+      return
+    }
+
+    if (amount % 50 !== 0) {
+      setCustomAmountError('El monto debe ser multiplo de Q50')
+      return
+    }
+
+    if (amount > balance) {
+      setCustomAmountError('El monto excede el saldo disponible')
+      return
+    }
+
+    setCustomAmountError('')
+    onWithdraw(amount)
+  }
+
+  return (
+    <div className="screen">
+      <h1>Retiro</h1>
+      <p className="screen-subtitle">Saldo disponible: Q{balance.toFixed(2)}</p>
+      <div className="menu-actions" role="group" aria-label="Montos de retiro">
+        {options.map((amount) => (
+          <button
+            key={amount}
+            type="button"
+            className="screen-action"
+            disabled={isLoading || amount > balance}
+            onClick={() => onWithdraw(amount)}
+          >
+            Q{amount}
+          </button>
+        ))}
+      </div>
+      <label htmlFor="monto-variable" className="atm-screen__label">Monto variable</label>
+      <input
+        id="monto-variable"
+        className="screen-input"
+        type="text"
+        inputMode="numeric"
+        placeholder="Ej. 250"
+        value={customAmount}
+        onChange={(event) => {
+          setCustomAmount(event.target.value.replace(/\D/g, ''))
+          setCustomAmountError('')
+        }}
+      />
+      {customAmountError ? <p className="screen-status">{customAmountError}</p> : null}
+      <button
+        type="button"
+        className="screen-action"
+        disabled={isLoading || !customAmount}
+        onClick={handleCustomWithdrawal}
+      >
+        Retirar monto ingresado
+      </button>
+      <button type="button" className="screen-action screen-action--secondary" onClick={onBack}>
+        Volver al menú
+      </button>
+    </div>
+  )
+}
+
+function BalanceScreen({ accountNumber, balance, nodoBd, onBack }) {
+  return (
+    <div className="screen">
+      <h1>Consulta de saldo</h1>
+      <p className="screen-subtitle">Cuenta: {accountNumber}</p>
+      <div className="atm-screen" aria-live="polite" aria-atomic="true">
+        <span className="atm-screen__label">Saldo actual</span>
+        <output className="atm-screen__value">Q{balance.toFixed(2)}</output>
+        <p className="atm-screen__status">Nodo BD: {nodoBd || 'desconocido'}</p>
+      </div>
+      <button type="button" className="screen-action" onClick={onBack}>
+        Volver al menú
+      </button>
+    </div>
+  )
+}
+
+function SuccessScreen({ message, onMenu }) {
+  return (
+    <div className="screen">
+      <h1>Operación exitosa</h1>
+      <p className="screen-subtitle">{message}</p>
+      <button type="button" className="screen-action" onClick={onMenu}>
+        Regresar al menú
+      </button>
+    </div>
+  )
+}
+
+function App() {
+  const [currentView, setCurrentView] = useState(VIEWS.WELCOME)
+  const [accountNumber, setAccountNumber] = useState('')
+  const [activeAccountNumber, setActiveAccountNumber] = useState('')
+  const [pin, setPin] = useState('')
+  const [pinStatus, setPinStatus] = useState('Ingresa tu PIN')
+  const [welcomeStatus, setWelcomeStatus] = useState('')
+  const [isPinError, setIsPinError] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
+  const [token, setToken] = useState('')
+  const [balance, setBalance] = useState(0)
+  const [nodoBd, setNodoBd] = useState('')
+  const [lastActionMessage, setLastActionMessage] = useState('')
+  const [pendingWithdrawalAmount, setPendingWithdrawalAmount] = useState(null)
+
+  const resetSession = () => {
+    setActiveAccountNumber('')
+    setPin('')
+    setPinStatus('Ingresa tu PIN')
+    setIsPinError(false)
+    setToken('')
+    setBalance(0)
+    setNodoBd('')
+    setLastActionMessage('')
+    setPendingWithdrawalAmount(null)
+  }
+
+  const handleInsertCard = () => {
+    const sanitizedAccount = accountNumber.trim()
+
+    if (sanitizedAccount.length < 5) {
+      setWelcomeStatus('El número de cuenta debe tener al menos 5 dígitos')
+      return
+    }
+
+    setActiveAccountNumber(sanitizedAccount)
+    setAccountNumber('')
+    setWelcomeStatus('')
+    setPin('')
+    setPinStatus('Ingresa tu PIN')
+    setIsPinError(false)
+    setCurrentView(VIEWS.PIN)
+  }
+
+  const fetchBalance = async (authToken, nextView = VIEWS.BALANCE) => {
+    const data = await apiRequest('/api/atm/saldo', {
+      method: 'GET',
+      token: authToken,
+    })
+    setBalance(Number(data.saldo))
+    setNodoBd(data.nodo_bd)
+    setCurrentView(nextView)
+  }
+
+  const handleLogin = async () => {
+    if (!activeAccountNumber) {
+      setPin('')
+      setPinStatus('Vuelve a ingresar el número de cuenta')
+      setIsPinError(true)
+      setCurrentView(VIEWS.WELCOME)
+      return
+    }
+
+    if (pin.length !== 4) {
+      setPinStatus('El PIN debe tener 4 dígitos')
+      setIsPinError(true)
+      return
+    }
+
+    setIsLoading(true)
+    setPinStatus('Validando credenciales...')
+    setIsPinError(false)
+
+    try {
+      const loginData = await apiRequest('/api/auth/login', {
+        method: 'POST',
+        body: {
+          numero_cuenta: activeAccountNumber,
+          pin,
+          atm_origen: ATM_ORIGEN,
+        },
+      })
+
+      setToken(loginData.access_token)
+      setPin('')
+      setPinStatus('PIN correcto')
+      setCurrentView(VIEWS.MENU)
+    } catch (error) {
+      setPin('')
+      setIsPinError(true)
+      setPinStatus(error.message)
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
+  const handlePinInput = (key) => {
+    if (isLoading) return
+
+    if (key === 'clear') {
+      setPin((current) => current.slice(0, -1))
+      setPinStatus('Se borró un dígito')
+      setIsPinError(false)
+      return
+    }
+
+    if (key === 'enter') {
+      handleLogin()
+      return
+    }
+
+    setPin((current) => {
+      if (current.length >= 4) {
+        setPinStatus('PIN completo, presiona Confirmar')
+        return current
+      }
+      setPinStatus('Capturando PIN...')
+      setIsPinError(false)
+      return `${current}${key}`
+    })
+  }
+
+  const handleGoToBalance = async () => {
+    if (!token) return
+
+    setIsLoading(true)
+    try {
+      await fetchBalance(token, VIEWS.BALANCE)
+    } catch (error) {
+      setLastActionMessage(error.message)
+      setCurrentView(VIEWS.SUCCESS)
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
+  const handleWithdrawal = async (amount) => {
+    if (!token) return
+
+    setIsLoading(true)
+    try {
+      const data = await apiRequest('/api/atm/retirar', {
+        method: 'POST',
+        token,
+        body: { monto: amount },
+      })
+
+      setBalance(Number(data.saldo_nuevo))
+      setNodoBd(data.nodo_bd)
+      setLastActionMessage(`${data.mensaje}. Retiro: Q${amount}. Saldo nuevo: Q${Number(data.saldo_nuevo).toFixed(2)}`)
+      setCurrentView(VIEWS.SUCCESS)
+    } catch (error) {
+      setLastActionMessage(error.message)
+      setCurrentView(VIEWS.SUCCESS)
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
+  const requestWithdrawal = (amount) => {
+    if (isLoading) return
+    setPendingWithdrawalAmount(amount)
+  }
+
+  const cancelWithdrawalConfirmation = () => {
+    if (isLoading) return
+    setPendingWithdrawalAmount(null)
+  }
+
+  const confirmWithdrawal = async () => {
+    if (pendingWithdrawalAmount === null) return
+    const amountToWithdraw = pendingWithdrawalAmount
+    setPendingWithdrawalAmount(null)
+    await handleWithdrawal(amountToWithdraw)
+  }
+
+  const handleLogout = async () => {
+    setIsLoading(true)
+    try {
+      if (token) {
+        await apiRequest('/api/atm/logout', {
+          method: 'POST',
+          token,
+        })
+      }
+    } catch {
+      // The local session must end even if the backend is unavailable.
+    } finally {
+      resetSession()
+      setCurrentView(VIEWS.WELCOME)
+      setIsLoading(false)
+    }
+  }
+
+  const renderView = () => {
+    switch (currentView) {
+      case VIEWS.WELCOME:
+        return (
+          <WelcomeScreen
+            accountNumber={accountNumber}
+            onChangeAccount={setAccountNumber}
+            onInsertCard={handleInsertCard}
+            status={welcomeStatus}
+          />
+        )
+      case VIEWS.PIN:
+        return (
+          <PinScreen
+            pin={pin}
+            status={pinStatus}
+            isError={isPinError}
+            isLoading={isLoading}
+            onPinInput={handlePinInput}
+            onCancel={() => {
+              resetSession()
+              setCurrentView(VIEWS.WELCOME)
+            }}
+          />
+        )
+      case VIEWS.MENU:
+        return (
+          <MenuScreen
+            isLoading={isLoading}
+            onGoToWithdraw={() => setCurrentView(VIEWS.WITHDRAW)}
+            onGoToBalance={handleGoToBalance}
+            onLogout={handleLogout}
+          />
+        )
+      case VIEWS.WITHDRAW:
+        return (
+          <WithdrawScreen
+            balance={balance}
+            isLoading={isLoading}
+            onWithdraw={requestWithdrawal}
+            onBack={() => setCurrentView(VIEWS.MENU)}
+          />
+        )
+      case VIEWS.BALANCE:
+        return (
+          <BalanceScreen
+            accountNumber={activeAccountNumber}
+            balance={balance}
+            nodoBd={nodoBd}
+            onBack={() => setCurrentView(VIEWS.MENU)}
+          />
+        )
+      case VIEWS.SUCCESS:
+        return (
+          <SuccessScreen
+            message={lastActionMessage || 'Operación completada'}
+            onMenu={() => setCurrentView(VIEWS.MENU)}
+          />
+        )
+      default:
+        return null
+    }
+  }
+
+  return (
+    <main className="atm-demo">
+      <section className="atm-panel" aria-label="Cajero automático">
+        {renderView()}
+      </section>
+
+      {pendingWithdrawalAmount !== null ? (
+        <section className="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="confirmar-retiro-titulo">
+          <div className="modal-card">
+            <h2 id="confirmar-retiro-titulo">Confirmar retiro</h2>
+            <p>¿Es correcto el monto a retirar?</p>
+            <p className="modal-amount">Q{pendingWithdrawalAmount}</p>
+            <div className="modal-actions">
+              <button
+                type="button"
+                className="screen-action"
+                onClick={confirmWithdrawal}
+                disabled={isLoading}
+              >
+                OK
+              </button>
+              <button
+                type="button"
+                className="screen-action screen-action--secondary"
+                onClick={cancelWithdrawalConfirmation}
+                disabled={isLoading}
+              >
+                Cancelar
+              </button>
+            </div>
+          </div>
+        </section>
+      ) : null}
+    </main>
+  )
+}
+
+export default App

@@ -1,10 +1,13 @@
-import sys
 from pathlib import Path
-
-sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+import sys
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+
+ROOT_DIR = Path(__file__).resolve().parents[1]
+if str(ROOT_DIR) not in sys.path:
+    sys.path.insert(0, str(ROOT_DIR))
+
 from app.core.config import settings
 from app.core.security import hash_pin
 from app.models import Cuenta
