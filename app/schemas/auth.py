@@ -9,3 +9,5 @@ class TokenResponse(BaseModel):
     access_token: str
     token_type: str = "bearer"
     mensaje: str
+    titular_nombre: str
+    tipo_cuenta: str

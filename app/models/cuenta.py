@@ -13,3 +13,4 @@ class Cuenta(Base):
     intentos_fallidos: Mapped[int] = mapped_column(Integer, nullable=False, default=0)
     bloqueada_hasta: Mapped[DateTime | None] = mapped_column(DateTime, nullable=True)
     activa: Mapped[bool] = mapped_column(Boolean, nullable=False, default=True)
+    tipo_cuenta: Mapped[str] = mapped_column(String(20), nullable=False, default='AHORRO')

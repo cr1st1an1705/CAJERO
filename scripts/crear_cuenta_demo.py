@@ -24,6 +24,12 @@ try:
     nombre = input("Titular: ").strip()
     pin = input("PIN de 4 digitos: ").strip()
 
+    tipo = ''
+    while tipo not in ('AHORRO', 'MONETARIA'):
+        tipo = input("Tipo de cuenta (AHORRO / MONETARIA): ").strip().upper()
+        if tipo not in ('AHORRO', 'MONETARIA'):
+            print("  Ingresa AHORRO o MONETARIA")
+
     existe = db.query(Cuenta).filter(Cuenta.numero_cuenta == numero).first()
     if existe:
         print("La cuenta ya existe")
@@ -34,7 +40,8 @@ try:
             pin_hash=hash_pin(pin),
             saldo=0,
             intentos_fallidos=0,
-            activa=True
+            activa=True,
+            tipo_cuenta=tipo,
         )
         db.add(cuenta)
         db.commit()

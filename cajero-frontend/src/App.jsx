@@ -4,10 +4,12 @@ import './App.css'
 
 const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL || '').replace(/\/$/, '')
 const ATM_ORIGEN = 'ATM-LOCAL'
+const MIN_WITHDRAWAL_PROCESSING_MS = 1500
 
 const VIEWS = {
   WELCOME: 'WELCOME',
   PIN: 'PIN',
+  ACCOUNT_SELECT: 'ACCOUNT_SELECT',
   MENU: 'MENU',
   WITHDRAW: 'WITHDRAW',
   BALANCE: 'BALANCE',
@@ -93,10 +95,75 @@ function PinScreen({ pin, status, isError, onPinInput, onCancel, isLoading }) {
   )
 }
 
-function MenuScreen({ onGoToWithdraw, onGoToBalance, onLogout, isLoading }) {
+function AccountSelectionScreen({ userName, accountNumber, tipoCuenta, onSelectSavings, onSelectChecking, onLogout, isLoading }) {
+  const isSavings = tipoCuenta === 'AHORRO'
+  const isChecking = tipoCuenta === 'MONETARIA'
+  const [noAccessMsg, setNoAccessMsg] = useState('')
+
+  const handleSavings = () => {
+    if (!isSavings) {
+      setNoAccessMsg('No cuentas con una cuenta de ahorro asociada a esta tarjeta.')
+    } else {
+      onSelectSavings()
+    }
+  }
+
+  const handleChecking = () => {
+    if (!isChecking) {
+      setNoAccessMsg('No cuentas con una cuenta monetaria asociada a esta tarjeta.')
+    } else {
+      onSelectChecking()
+    }
+  }
+
+  return (
+    <div className="screen screen--centered">
+      <h1>Bienvenido</h1>
+      <p className="welcome-name">{userName}</p>
+      <p className="screen-subtitle">Cuenta principal: {accountNumber}</p>
+      <div className="menu-actions menu-actions--account-types" role="group" aria-label="Tipos de cuenta">
+        <button
+          type="button"
+          className={`screen-action screen-action--account${!isSavings ? ' screen-action--disabled-look' : ''}`}
+          onClick={handleSavings}
+          disabled={isLoading}
+        >
+          <span>Cuenta de ahorro</span>
+        </button>
+        <button
+          type="button"
+          className={`screen-action screen-action--account${!isChecking ? ' screen-action--disabled-look' : ''}`}
+          onClick={handleChecking}
+          disabled={isLoading}
+        >
+          <span>Cuenta monetaria</span>
+        </button>
+      </div>
+      <button type="button" className="screen-action screen-action--secondary" onClick={onLogout} disabled={isLoading}>
+        Cerrar sesión
+      </button>
+
+      {noAccessMsg && (
+        <section className="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="no-acceso-titulo">
+          <div className="modal-card">
+            <h2 id="no-acceso-titulo">Acceso no permitido</h2>
+            <p style={{ textAlign: 'center', margin: '0.5rem 0 1rem' }}>{noAccessMsg}</p>
+            <div className="modal-actions">
+              <button type="button" className="screen-action" onClick={() => setNoAccessMsg('')}>
+                Aceptar
+              </button>
+            </div>
+          </div>
+        </section>
+      )}
+    </div>
+  )
+}
+
+function MenuScreen({ accountTypeLabel, onGoToWithdraw, onGoToBalance, onBack, onLogout, isLoading }) {
   return (
     <div className="screen">
-      <h1>Menú principal</h1>
+      <h1>{accountTypeLabel}</h1>
       <p className="screen-subtitle">Selecciona una operación</p>
       <div className="menu-actions" role="group" aria-label="Operaciones disponibles">
         <button type="button" className="screen-action" onClick={onGoToWithdraw} disabled={isLoading}>
@@ -106,9 +173,14 @@ function MenuScreen({ onGoToWithdraw, onGoToBalance, onLogout, isLoading }) {
           Consultar saldo
         </button>
       </div>
-      <button type="button" className="screen-action screen-action--secondary" onClick={onLogout} disabled={isLoading}>
-        Cerrar sesión
-      </button>
+      <div className="menu-footer-actions">
+        <button type="button" className="screen-action screen-action--secondary" onClick={onLogout} disabled={isLoading}>
+          Cerrar sesión
+        </button>
+        <button type="button" className="screen-action screen-action--secondary" onClick={onBack} disabled={isLoading}>
+          Regresar
+        </button>
+      </div>
     </div>
   )
 }
@@ -117,6 +189,24 @@ function WithdrawScreen({ balance, onWithdraw, onBack, isLoading }) {
   const options = [50, 100, 200, 300, 500, 1000, 1500, 2000]
   const [customAmount, setCustomAmount] = useState('')
   const [customAmountError, setCustomAmountError] = useState('')
+  const [insufficientFundsMessage, setInsufficientFundsMessage] = useState('')
+
+  const openInsufficientFundsModal = () => {
+    setInsufficientFundsMessage('Favor consultar saldo.')
+  }
+
+  const closeInsufficientFundsModal = () => {
+    setInsufficientFundsMessage('')
+  }
+
+  const handleQuickWithdrawal = (amount) => {
+    if (amount > balance) {
+      openInsufficientFundsModal()
+      return
+    }
+
+    onWithdraw(amount)
+  }
 
   const handleCustomWithdrawal = () => {
     const amount = Number(customAmount)
@@ -132,7 +222,7 @@ function WithdrawScreen({ balance, onWithdraw, onBack, isLoading }) {
     }
 
     if (amount > balance) {
-      setCustomAmountError('El monto excede el saldo disponible')
+      openInsufficientFundsModal()
       return
     }
 
@@ -150,8 +240,8 @@ function WithdrawScreen({ balance, onWithdraw, onBack, isLoading }) {
             key={amount}
             type="button"
             className="screen-action"
-            disabled={isLoading || amount > balance}
-            onClick={() => onWithdraw(amount)}
+            disabled={isLoading}
+            onClick={() => handleQuickWithdrawal(amount)}
           >
             Q{amount}
           </button>
@@ -182,19 +272,34 @@ function WithdrawScreen({ balance, onWithdraw, onBack, isLoading }) {
       <button type="button" className="screen-action screen-action--secondary" onClick={onBack}>
         Volver al menú
       </button>
+
+      {insufficientFundsMessage ? (
+        <section className="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="saldo-insuficiente-titulo">
+          <div className="modal-card modal-card--centered">
+            <h2 id="saldo-insuficiente-titulo">Saldo insuficiente</h2>
+            <p>{insufficientFundsMessage}</p>
+            <div className="modal-actions">
+              <button type="button" className="screen-action" onClick={closeInsufficientFundsModal}>
+                Aceptar
+              </button>
+            </div>
+          </div>
+        </section>
+      ) : null}
     </div>
   )
 }
 
-function BalanceScreen({ accountNumber, balance, nodoBd, onBack }) {
+function BalanceScreen({ accountNumber, accountTypeLabel, balance, nodoBd, onBack }) {
   return (
     <div className="screen">
       <h1>Consulta de saldo</h1>
       <p className="screen-subtitle">Cuenta: {accountNumber}</p>
+      <p className="screen-subtitle">Tipo: {accountTypeLabel}</p>
       <div className="atm-screen" aria-live="polite" aria-atomic="true">
         <span className="atm-screen__label">Saldo actual</span>
         <output className="atm-screen__value">Q{balance.toFixed(2)}</output>
-        <p className="atm-screen__status">Nodo BD: {nodoBd || 'desconocido'}</p>
+        {/* <p className="atm-screen__status">Nodo BD: {nodoBd || 'desconocido'}</p> */}
       </div>
       <button type="button" className="screen-action" onClick={onBack}>
         Volver al menú
@@ -219,6 +324,9 @@ function App() {
   const [currentView, setCurrentView] = useState(VIEWS.WELCOME)
   const [accountNumber, setAccountNumber] = useState('')
   const [activeAccountNumber, setActiveAccountNumber] = useState('')
+  const [userName, setUserName] = useState('')
+  const [tipoCuenta, setTipoCuenta] = useState('')
+  const [selectedAccountType, setSelectedAccountType] = useState('')
   const [pin, setPin] = useState('')
   const [pinStatus, setPinStatus] = useState('Ingresa tu PIN')
   const [welcomeStatus, setWelcomeStatus] = useState('')
@@ -229,9 +337,14 @@ function App() {
   const [nodoBd, setNodoBd] = useState('')
   const [lastActionMessage, setLastActionMessage] = useState('')
   const [pendingWithdrawalAmount, setPendingWithdrawalAmount] = useState(null)
+  const [isProcessingWithdrawal, setIsProcessingWithdrawal] = useState(false)
+  const [isCashReadyModalOpen, setIsCashReadyModalOpen] = useState(false)
 
   const resetSession = () => {
     setActiveAccountNumber('')
+    setUserName('')
+    setTipoCuenta('')
+    setSelectedAccountType('')
     setPin('')
     setPinStatus('Ingresa tu PIN')
     setIsPinError(false)
@@ -240,6 +353,8 @@ function App() {
     setNodoBd('')
     setLastActionMessage('')
     setPendingWithdrawalAmount(null)
+    setIsProcessingWithdrawal(false)
+    setIsCashReadyModalOpen(false)
   }
 
   const handleInsertCard = () => {
@@ -299,9 +414,11 @@ function App() {
       })
 
       setToken(loginData.access_token)
+      setUserName(loginData.titular_nombre)
+      setTipoCuenta(loginData.tipo_cuenta || 'AHORRO')
       setPin('')
       setPinStatus('PIN correcto')
-      setCurrentView(VIEWS.MENU)
+      setCurrentView(VIEWS.ACCOUNT_SELECT)
     } catch (error) {
       setPin('')
       setIsPinError(true)
@@ -351,8 +468,25 @@ function App() {
     }
   }
 
-  const handleWithdrawal = async (amount) => {
+  const handleGoToWithdraw = async () => {
     if (!token) return
+
+    setIsLoading(true)
+    try {
+      await fetchBalance(token, VIEWS.WITHDRAW)
+    } catch (error) {
+      setLastActionMessage(error.message)
+      setCurrentView(VIEWS.SUCCESS)
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
+  const handleWithdrawal = async (amount) => {
+    if (!token) {
+      setLastActionMessage('Sesion expirada. Inicia sesion nuevamente.')
+      return { ok: false }
+    }
 
     setIsLoading(true)
     try {
@@ -365,10 +499,10 @@ function App() {
       setBalance(Number(data.saldo_nuevo))
       setNodoBd(data.nodo_bd)
       setLastActionMessage(`${data.mensaje}. Retiro: Q${amount}. Saldo nuevo: Q${Number(data.saldo_nuevo).toFixed(2)}`)
-      setCurrentView(VIEWS.SUCCESS)
+      return { ok: true }
     } catch (error) {
       setLastActionMessage(error.message)
-      setCurrentView(VIEWS.SUCCESS)
+      return { ok: false }
     } finally {
       setIsLoading(false)
     }
@@ -388,7 +522,27 @@ function App() {
     if (pendingWithdrawalAmount === null) return
     const amountToWithdraw = pendingWithdrawalAmount
     setPendingWithdrawalAmount(null)
-    await handleWithdrawal(amountToWithdraw)
+    setIsProcessingWithdrawal(true)
+
+    const [withdrawalResult] = await Promise.all([
+      handleWithdrawal(amountToWithdraw),
+      new Promise((resolve) => setTimeout(resolve, MIN_WITHDRAWAL_PROCESSING_MS)),
+    ])
+
+    setIsProcessingWithdrawal(false)
+
+    if (withdrawalResult?.ok) {
+      setIsCashReadyModalOpen(true)
+      return
+    }
+
+    setCurrentView(VIEWS.SUCCESS)
+  }
+
+  const closeCashReadyModal = () => {
+    if (isLoading) return
+    setIsCashReadyModalOpen(false)
+    setCurrentView(VIEWS.MENU)
   }
 
   const handleLogout = async () => {
@@ -408,6 +562,13 @@ function App() {
       setIsLoading(false)
     }
   }
+
+  const handleSelectAccountType = (accountType) => {
+    setSelectedAccountType(accountType)
+    setCurrentView(VIEWS.MENU)
+  }
+
+  const accountTypeLabel = selectedAccountType || 'Cuenta seleccionada'
 
   const renderView = () => {
     switch (currentView) {
@@ -434,12 +595,26 @@ function App() {
             }}
           />
         )
+      case VIEWS.ACCOUNT_SELECT:
+        return (
+          <AccountSelectionScreen
+            userName={userName}
+            accountNumber={activeAccountNumber}
+            tipoCuenta={tipoCuenta}
+            isLoading={isLoading}
+            onSelectSavings={() => handleSelectAccountType('Cuenta de ahorro')}
+            onSelectChecking={() => handleSelectAccountType('Cuenta monetaria')}
+            onLogout={handleLogout}
+          />
+        )
       case VIEWS.MENU:
         return (
           <MenuScreen
+            accountTypeLabel={accountTypeLabel}
             isLoading={isLoading}
-            onGoToWithdraw={() => setCurrentView(VIEWS.WITHDRAW)}
+            onGoToWithdraw={handleGoToWithdraw}
             onGoToBalance={handleGoToBalance}
+            onBack={() => setCurrentView(VIEWS.ACCOUNT_SELECT)}
             onLogout={handleLogout}
           />
         )
@@ -456,6 +631,7 @@ function App() {
         return (
           <BalanceScreen
             accountNumber={activeAccountNumber}
+            accountTypeLabel={accountTypeLabel}
             balance={balance}
             nodoBd={nodoBd}
             onBack={() => setCurrentView(VIEWS.MENU)}
@@ -501,6 +677,39 @@ function App() {
                 disabled={isLoading}
               >
                 Cancelar
+              </button>
+            </div>
+          </div>
+        </section>
+      ) : null}
+
+      {isProcessingWithdrawal ? (
+        <section className="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="procesando-retiro-titulo">
+          <div className="modal-card modal-card--centered">
+            <h2 id="procesando-retiro-titulo">Procesando retiro</h2>
+            <div className="spinner-balls" aria-hidden="true">
+              <span className="spinner-ball" />
+              <span className="spinner-ball" />
+              <span className="spinner-ball" />
+            </div>
+            <p className="modal-processing-text">Procesando...</p>
+          </div>
+        </section>
+      ) : null}
+
+      {isCashReadyModalOpen ? (
+        <section className="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="retire-efectivo-titulo">
+          <div className="modal-card modal-card--centered">
+            <h2 id="retire-efectivo-titulo">Retire su efectivo</h2>
+            <p>Tu transaccion fue procesada correctamente.</p>
+            <div className="modal-actions">
+              <button
+                type="button"
+                className="screen-action"
+                onClick={closeCashReadyModal}
+                disabled={isLoading}
+              >
+                Aceptar
               </button>
             </div>
           </div>

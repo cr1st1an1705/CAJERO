@@ -7,7 +7,7 @@ from app.models.cuenta import Cuenta
 from app.models.sesion import Sesion
 from app.services.audit_service import registrar_auditoria
 
-def login(db: Session, numero_cuenta: str, pin: str, atm_origen: str, ip_origen: str | None = None) -> str:
+def login(db: Session, numero_cuenta: str, pin: str, atm_origen: str, ip_origen: str | None = None) -> dict[str, str]:
     cuenta = db.query(Cuenta).filter(Cuenta.numero_cuenta == numero_cuenta).first()
 
     if not cuenta:
@@ -65,4 +65,8 @@ def login(db: Session, numero_cuenta: str, pin: str, atm_origen: str, ip_origen:
     )
 
     db.commit()
-    return token
+    return {
+        "access_token": token,
+        "titular_nombre": cuenta.titular_nombre,
+        "tipo_cuenta": cuenta.tipo_cuenta,
+    }

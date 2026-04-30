@@ -24,6 +24,10 @@
   animation: slideIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
+.screen--centered {
+  text-align: center;
+}
+
 .screen--fade-in {
   animation: fadeIn 0.3s ease-out;
 }
@@ -120,6 +124,13 @@
   color: #cbd5e1;
 }
 
+.welcome-name {
+  margin: 0;
+  font-size: 1.55rem;
+  font-weight: 800;
+  color: #bfdbfe;
+}
+
 .screen-input {
   width: 100%;
   min-height: 44px;
@@ -144,6 +155,16 @@
 }
 
 .menu-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.menu-actions--account-types {
+  align-items: stretch;
+}
+
+.menu-footer-actions {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 10px;
@@ -195,6 +216,25 @@
   box-shadow: 0 8px 20px rgba(107, 114, 128, 0.4);
 }
 
+.screen-action--account {
+  min-height: 110px;
+  padding: 14px;
+  text-align: center;
+}
+
+.screen-action--account span {
+  display: block;
+}
+
+.screen-action--disabled-look {
+  opacity: 0.95;
+  cursor: not-allowed;
+}
+
+.screen-action--disabled-look:hover {
+  filter: none;
+}
+
 .modal-backdrop {
   position: fixed;
   inset: 0;
@@ -213,6 +253,10 @@
   color: #e2e8f0;
   padding: 18px;
   box-shadow: 0 18px 45px rgba(2, 6, 23, 0.55);
+}
+
+.modal-card--centered {
+  text-align: center;
 }
 
 .modal-card h2 {
@@ -236,6 +280,54 @@
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 10px;
+}
+
+.modal-actions > .screen-action:only-child {
+  grid-column: 1 / -1;
+  justify-self: center;
+  width: min(220px, 100%);
+}
+
+.spinner-balls {
+  margin-top: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.spinner-ball {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #93c5fd;
+  animation: bounce-ball 0.8s infinite ease-in-out;
+}
+
+.spinner-ball:nth-child(2) {
+  animation-delay: 0.12s;
+}
+
+.spinner-ball:nth-child(3) {
+  animation-delay: 0.24s;
+}
+
+.modal-processing-text {
+  margin-top: 10px !important;
+}
+
+@keyframes bounce-ball {
+  0%,
+  80%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.5;
+  }
+
+  40% {
+    transform: translateY(-8px);
+    opacity: 1;
+  }
 }
 
 @media (max-width: 480px) {

@@ -8,7 +8,7 @@ router = APIRouter(prefix="/api/auth", tags=["auth"])
 
 @router.post("/login", response_model=TokenResponse)
 def login_route(payload: LoginRequest, request: Request, db: Session = Depends(get_db)):
-    token = login(
+    login_result = login(
         db=db,
         numero_cuenta=payload.numero_cuenta,
         pin=payload.pin,
@@ -16,7 +16,9 @@ def login_route(payload: LoginRequest, request: Request, db: Session = Depends(g
         ip_origen=request.client.host if request.client else None
     )
     return {
-        "access_token": token,
+        "access_token": login_result["access_token"],
         "token_type": "bearer",
-        "mensaje": "Login correcto"
+        "mensaje": "Login correcto",
+        "titular_nombre": login_result["titular_nombre"],
+        "tipo_cuenta": login_result["tipo_cuenta"],
     }
