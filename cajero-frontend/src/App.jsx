@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { jsPDF } from 'jspdf'
 import Keypad from './Keypad'
 import './App.css'
 
@@ -46,6 +47,64 @@ async function apiRequest(path, { method = 'GET', token, body } = {}) {
   }
 
   return payload
+}
+
+function generateReceiptPDF(amount, balance, accountNumber) {
+  try {
+    const doc = new jsPDF()
+    const pageWidth = doc.internal.pageSize.getWidth()
+    const pageHeight = doc.internal.pageSize.getHeight()
+    let yPosition = 20
+
+    // Encabezado
+    doc.setFontSize(18)
+    doc.text('RECIBO DE RETIRO', pageWidth / 2, yPosition, { align: 'center' })
+    yPosition += 15
+
+    // Línea separadora
+    doc.setDrawColor(0)
+    doc.line(20, yPosition, pageWidth - 20, yPosition)
+    yPosition += 10
+
+    // Información del recibo
+    doc.setFontSize(12)
+    const now = new Date()
+    const fecha = now.toLocaleDateString('es-GT')
+    const hora = now.toLocaleTimeString('es-GT')
+
+    doc.text(`Fecha: ${fecha}`, 20, yPosition)
+    yPosition += 8
+    doc.text(`Hora: ${hora}`, 20, yPosition)
+    yPosition += 12
+
+    // Detalles de la transacción
+    doc.setFontSize(11)
+    doc.text('DETALLES DE LA TRANSACCIÓN:', 20, yPosition)
+    yPosition += 8
+
+    doc.setFontSize(10)
+    doc.text(`Número de cuenta: ${accountNumber}`, 20, yPosition)
+    yPosition += 7
+    doc.text(`Monto retirado: Q${amount.toFixed(2)}`, 20, yPosition)
+    yPosition += 7
+    doc.text(`Saldo restante: Q${balance.toFixed(2)}`, 20, yPosition)
+    yPosition += 12
+
+    // Línea separadora
+    doc.line(20, yPosition, pageWidth - 20, yPosition)
+    yPosition += 10
+
+    // Pie de página
+    doc.setFontSize(9)
+    doc.text('Gracias por usar nuestro cajero automático.', pageWidth / 2, pageHeight - 20, { align: 'center' })
+    doc.text('Guarde este recibo para su registro.', pageWidth / 2, pageHeight - 15, { align: 'center' })
+
+    // Descargar el PDF
+    const nombreArchivo = `recibo_${accountNumber}_${now.getTime()}.pdf`
+    doc.save(nombreArchivo)
+  } catch (error) {
+    console.error('Error al generar el PDF:', error)
+  }
 }
 
 function WelcomeScreen({ accountNumber, onChangeAccount, onInsertCard, status }) {
@@ -299,7 +358,7 @@ function BalanceScreen({ accountNumber, accountTypeLabel, balance, nodoBd, onBac
       <div className="atm-screen" aria-live="polite" aria-atomic="true">
         <span className="atm-screen__label">Saldo actual</span>
         <output className="atm-screen__value">Q{balance.toFixed(2)}</output>
-        {/* <p className="atm-screen__status">Nodo BD: {nodoBd || 'desconocido'}</p> */}
+        <p className="atm-screen__status">Nodo BD: {nodoBd || 'desconocido'}</p>
       </div>
       <button type="button" className="screen-action" onClick={onBack}>
         Volver al menú
@@ -320,6 +379,48 @@ function SuccessScreen({ message, onMenu }) {
   )
 }
 
+function ReceiptModal({ amount, balance, accountNumber, onYes, onNo }) {
+  return (
+    <section className="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="imprimir-recibo-titulo">
+      <div className="modal-card modal-card--centered">
+        <h2 id="imprimir-recibo-titulo">Imprimir recibo</h2>
+        <div className="modal-summary">
+          <p><strong>Cuenta:</strong> {accountNumber}</p>
+          <p><strong>Monto retirado:</strong> Q{amount.toFixed(2)}</p>
+          <p><strong>Saldo restante:</strong> Q{balance.toFixed(2)}</p>
+        </div>
+        <div className="modal-actions">
+          <button type="button" className="screen-action" onClick={onYes}>
+            Si
+          </button>
+          <button type="button" className="screen-action screen-action--secondary" onClick={onNo}>
+            No
+          </button>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function AnotherTransactionModal({ onYes, onNo }) {
+  return (
+    <section className="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="otra-transaccion-titulo">
+      <div className="modal-card modal-card--centered">
+        <h2 id="otra-transaccion-titulo">Necesitas realizar otra transacción</h2>
+        <p></p>
+        <div className="modal-actions">
+          <button type="button" className="screen-action" onClick={onYes}>
+            Si
+          </button>
+          <button type="button" className="screen-action screen-action--secondary" onClick={onNo}>
+            No
+          </button>
+        </div>
+      </div>
+    </section>
+  )
+}
+
 function App() {
   const [currentView, setCurrentView] = useState(VIEWS.WELCOME)
   const [accountNumber, setAccountNumber] = useState('')
@@ -336,9 +437,21 @@ function App() {
   const [balance, setBalance] = useState(0)
   const [nodoBd, setNodoBd] = useState('')
   const [lastActionMessage, setLastActionMessage] = useState('')
+  const [withdrawalSummary, setWithdrawalSummary] = useState(null)
   const [pendingWithdrawalAmount, setPendingWithdrawalAmount] = useState(null)
   const [isProcessingWithdrawal, setIsProcessingWithdrawal] = useState(false)
   const [isCashReadyModalOpen, setIsCashReadyModalOpen] = useState(false)
+  const [isReceiptModalOpen, setIsReceiptModalOpen] = useState(false)
+  const [isAnotherTransactionModalOpen, setIsAnotherTransactionModalOpen] = useState(false)
+
+  const closeWithdrawalFlowModals = () => {
+    setPendingWithdrawalAmount(null)
+    setIsProcessingWithdrawal(false)
+    setIsCashReadyModalOpen(false)
+    setIsReceiptModalOpen(false)
+    setIsAnotherTransactionModalOpen(false)
+    setWithdrawalSummary(null)
+  }
 
   const resetSession = () => {
     setActiveAccountNumber('')
@@ -352,9 +465,22 @@ function App() {
     setBalance(0)
     setNodoBd('')
     setLastActionMessage('')
-    setPendingWithdrawalAmount(null)
-    setIsProcessingWithdrawal(false)
-    setIsCashReadyModalOpen(false)
+    closeWithdrawalFlowModals()
+  }
+
+  const restartLoginFromPin = () => {
+    setUserName('')
+    setTipoCuenta('')
+    setSelectedAccountType('')
+    setPin('')
+    setPinStatus('Ingresa tu PIN')
+    setIsPinError(false)
+    setToken('')
+    setBalance(0)
+    setNodoBd('')
+    setLastActionMessage('')
+    closeWithdrawalFlowModals()
+    setCurrentView(VIEWS.PIN)
   }
 
   const handleInsertCard = () => {
@@ -498,6 +624,10 @@ function App() {
 
       setBalance(Number(data.saldo_nuevo))
       setNodoBd(data.nodo_bd)
+      setWithdrawalSummary({
+        amount,
+        balance: Number(data.saldo_nuevo),
+      })
       setLastActionMessage(`${data.mensaje}. Retiro: Q${amount}. Saldo nuevo: Q${Number(data.saldo_nuevo).toFixed(2)}`)
       return { ok: true }
     } catch (error) {
@@ -542,7 +672,30 @@ function App() {
   const closeCashReadyModal = () => {
     if (isLoading) return
     setIsCashReadyModalOpen(false)
-    setCurrentView(VIEWS.MENU)
+    setIsReceiptModalOpen(true)
+  }
+
+  const handleReceiptYes = () => {
+    if (withdrawalSummary) {
+      generateReceiptPDF(withdrawalSummary.amount, withdrawalSummary.balance, activeAccountNumber)
+    }
+    setIsReceiptModalOpen(false)
+    setIsAnotherTransactionModalOpen(true)
+  }
+
+  const handleReceiptNo = () => {
+    setIsReceiptModalOpen(false)
+    setIsAnotherTransactionModalOpen(true)
+  }
+
+  const handleAnotherTransactionYes = () => {
+    setIsAnotherTransactionModalOpen(false)
+    restartLoginFromPin()
+  }
+
+  const handleAnotherTransactionNo = async () => {
+    setIsAnotherTransactionModalOpen(false)
+    await handleLogout()
   }
 
   const handleLogout = async () => {
@@ -681,6 +834,23 @@ function App() {
             </div>
           </div>
         </section>
+      ) : null}
+
+      {isReceiptModalOpen && withdrawalSummary ? (
+        <ReceiptModal
+          amount={withdrawalSummary.amount}
+          balance={withdrawalSummary.balance}
+          accountNumber={activeAccountNumber}
+          onYes={handleReceiptYes}
+          onNo={handleReceiptNo}
+        />
+      ) : null}
+
+      {isAnotherTransactionModalOpen ? (
+        <AnotherTransactionModal
+          onYes={handleAnotherTransactionYes}
+          onNo={handleAnotherTransactionNo}
+        />
       ) : null}
 
       {isProcessingWithdrawal ? (

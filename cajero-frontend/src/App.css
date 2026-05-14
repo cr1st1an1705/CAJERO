@@ -259,6 +259,25 @@
   text-align: center;
 }
 
+.modal-summary {
+  display: grid;
+  gap: 8px;
+  margin: 14px 0 4px;
+  text-align: left;
+}
+
+.modal-summary p {
+  margin: 0;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: rgba(148, 163, 184, 0.12);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+.modal-summary strong {
+  color: #bfdbfe;
+}
+
 .modal-card h2 {
   margin: 0 0 10px;
   font-size: 1.2rem;
