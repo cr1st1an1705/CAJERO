@@ -31,6 +31,28 @@ services:
       - ./mysql/secondary/init:/docker-entrypoint-initdb.d
       - mysql_secondary_data:/var/lib/mysql
 
+  failover-monitor:
+    build:
+      context: ./failover-monitor
+    container_name: failover-monitor-cajero
+    restart: unless-stopped
+    depends_on:
+      - mysql-primary
+      - mysql-secondary
+    environment:
+      PRIMARY_HOST: mysql-primary
+      SECONDARY_HOST: mysql-secondary
+      MYSQL_PORT: 3306
+      MYSQL_ROOT_USER: root
+      MYSQL_ROOT_PASSWORD: root
+      APP_DB: cajero_atm
+      APP_USER: cajero_user
+      APP_PASSWORD: cajero_pass
+      REPL_USER: replica_user
+      REPL_PASSWORD: replica_pass
+    volumes:
+      - ../logs:/logs
+
 volumes:
   mysql_primary_data:
   mysql_secondary_data:
