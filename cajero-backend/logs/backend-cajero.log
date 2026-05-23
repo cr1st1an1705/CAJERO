@@ -1,0 +1,444 @@
+2026-04-25 21:51:50,905 | WARNING | app.core.database | Fallo conexion a DB: (pymysql.err.OperationalError) (2003, "Can't connect to MySQL server on '127.0.0.1' ([Errno 111] Connection refused)")
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-04-25 21:51:50,906 | WARNING | app.core.database | Fallo conexion a DB: (pymysql.err.OperationalError) (2003, "Can't connect to MySQL server on '127.0.0.1' ([Errno 111] Connection refused)")
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-04-25 21:51:50,919 | WARNING | app.core.database | Fallo conexion a DB: (pymysql.err.OperationalError) (2003, "Can't connect to MySQL server on '127.0.0.1' ([Errno 111] Connection refused)")
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-04-25 21:51:50,920 | WARNING | app.core.database | Fallo conexion a DB: (pymysql.err.OperationalError) (2003, "Can't connect to MySQL server on '127.0.0.1' ([Errno 111] Connection refused)")
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-04-25 21:51:57,124 | WARNING | app.core.database | Fallo conexion a DB: (pymysql.err.OperationalError) (2003, "Can't connect to MySQL server on '127.0.0.1' ([Errno 111] Connection refused)")
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-04-25 21:51:57,125 | WARNING | app.core.database | Fallo conexion a DB: (pymysql.err.OperationalError) (2003, "Can't connect to MySQL server on '127.0.0.1' ([Errno 111] Connection refused)")
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-04-25 21:51:57,140 | WARNING | app.core.database | Fallo conexion a DB: (pymysql.err.OperationalError) (2003, "Can't connect to MySQL server on '127.0.0.1' ([Errno 111] Connection refused)")
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-04-25 21:51:57,140 | WARNING | app.core.database | Fallo conexion a DB: (pymysql.err.OperationalError) (2003, "Can't connect to MySQL server on '127.0.0.1' ([Errno 111] Connection refused)")
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-04-25 21:52:00,081 | WARNING | app.core.database | Fallo conexion a DB: (pymysql.err.OperationalError) (2003, "Can't connect to MySQL server on '127.0.0.1' ([Errno 111] Connection refused)")
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-04-25 21:52:00,082 | WARNING | app.core.database | Fallo conexion a DB: (pymysql.err.OperationalError) (2003, "Can't connect to MySQL server on '127.0.0.1' ([Errno 111] Connection refused)")
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-04-25 21:52:00,094 | WARNING | app.core.database | Fallo conexion a DB: (pymysql.err.OperationalError) (2003, "Can't connect to MySQL server on '127.0.0.1' ([Errno 111] Connection refused)")
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-04-25 21:52:00,095 | WARNING | app.core.database | Fallo conexion a DB: (pymysql.err.OperationalError) (2003, "Can't connect to MySQL server on '127.0.0.1' ([Errno 111] Connection refused)")
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-04-27 17:26:50,447 | INFO | app.services.audit_service | FISICO | INGRESO_CUENTA_Y_PIN | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-27 17:26:50,448 | INFO | app.services.audit_service | LOGICO | LOGIN_OK | cuenta=1 | nodo=primary | Sesion abierta desde ATM-LOCAL
+2026-04-27 17:35:08,006 | INFO | app.services.audit_service | FISICO | INGRESO_CUENTA_Y_PIN | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-27 17:35:08,006 | INFO | app.services.audit_service | LOGICO | LOGIN_OK | cuenta=1 | nodo=primary | Sesion abierta desde ATM-LOCAL
+2026-04-27 17:35:14,509 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-27 17:35:14,509 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=1 | nodo=primary | Saldo actual consultado
+2026-04-27 17:35:31,135 | INFO | app.services.audit_service | FISICO | SALIDA_CAJERO | cuenta=1 | nodo=primary | Sesion cerrada
+2026-04-27 17:35:31,136 | INFO | app.services.audit_service | LOGICO | LOGOUT_OK | cuenta=1 | nodo=primary | Sesion finalizada
+2026-04-27 17:35:51,850 | INFO | app.services.audit_service | LOGICO | PIN_INVALIDO | cuenta=1 | nodo=primary | Intento fallido desde ATM-LOCAL
+2026-04-27 17:35:57,707 | INFO | app.services.audit_service | FISICO | INGRESO_CUENTA_Y_PIN | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-27 17:35:57,707 | INFO | app.services.audit_service | LOGICO | LOGIN_OK | cuenta=1 | nodo=primary | Sesion abierta desde ATM-LOCAL
+2026-04-27 17:36:03,606 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-27 17:36:03,606 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=1 | nodo=primary | Saldo actual consultado
+2026-04-27 17:47:43,601 | INFO | app.services.audit_service | FISICO | INGRESO_CUENTA_Y_PIN | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-27 17:47:43,601 | INFO | app.services.audit_service | LOGICO | LOGIN_OK | cuenta=1 | nodo=primary | Sesion abierta desde ATM-LOCAL
+2026-04-27 17:47:47,726 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-27 17:47:47,726 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=1 | nodo=primary | Saldo actual consultado
+2026-04-27 17:47:52,954 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-27 17:47:52,954 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=1 | nodo=primary | Saldo actual consultado
+2026-04-27 17:47:58,127 | INFO | app.services.audit_service | FISICO | SOLICITUD_RETIRO | cuenta=1 | nodo=primary | Monto=50
+2026-04-27 17:47:58,128 | INFO | app.services.audit_service | LOGICO | RETIRO_OK | cuenta=1 | nodo=primary | Saldo nuevo=1950.00
+2026-04-27 17:48:05,450 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-27 17:48:05,450 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=1 | nodo=primary | Saldo actual consultado
+2026-04-27 17:48:12,218 | INFO | app.services.audit_service | FISICO | SALIDA_CAJERO | cuenta=1 | nodo=primary | Sesion cerrada
+2026-04-27 17:48:12,218 | INFO | app.services.audit_service | LOGICO | LOGOUT_OK | cuenta=1 | nodo=primary | Sesion finalizada
+2026-04-27 17:50:21,631 | INFO | app.services.audit_service | FISICO | INGRESO_CUENTA_Y_PIN | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-27 17:50:21,631 | INFO | app.services.audit_service | LOGICO | LOGIN_OK | cuenta=1 | nodo=primary | Sesion abierta desde ATM-LOCAL
+2026-04-27 17:50:25,482 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-27 17:50:25,482 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=1 | nodo=primary | Saldo actual consultado
+2026-04-27 17:50:34,699 | INFO | app.services.audit_service | FISICO | SALIDA_CAJERO | cuenta=1 | nodo=primary | Sesion cerrada
+2026-04-27 17:50:34,699 | INFO | app.services.audit_service | LOGICO | LOGOUT_OK | cuenta=1 | nodo=primary | Sesion finalizada
+2026-04-27 19:44:49,019 | INFO | app.services.audit_service | FISICO | INGRESO_CUENTA_Y_PIN | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-27 19:44:49,019 | INFO | app.services.audit_service | LOGICO | LOGIN_OK | cuenta=1 | nodo=primary | Sesion abierta desde ATM-LOCAL
+2026-04-27 19:44:52,080 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-27 19:44:52,080 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=1 | nodo=primary | Saldo actual consultado
+2026-04-27 19:44:58,459 | INFO | app.services.audit_service | FISICO | SALIDA_CAJERO | cuenta=1 | nodo=primary | Sesion cerrada
+2026-04-27 19:44:58,459 | INFO | app.services.audit_service | LOGICO | LOGOUT_OK | cuenta=1 | nodo=primary | Sesion finalizada
+2026-04-27 19:45:58,057 | INFO | app.services.audit_service | FISICO | INGRESO_CUENTA_Y_PIN | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-27 19:45:58,057 | INFO | app.services.audit_service | LOGICO | LOGIN_OK | cuenta=1 | nodo=primary | Sesion abierta desde ATM-LOCAL
+2026-04-27 19:46:02,538 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-27 19:46:02,538 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=1 | nodo=primary | Saldo actual consultado
+2026-04-27 19:46:17,354 | INFO | app.services.audit_service | FISICO | SOLICITUD_RETIRO | cuenta=1 | nodo=primary | Monto=200
+2026-04-27 19:46:17,354 | INFO | app.services.audit_service | LOGICO | RETIRO_OK | cuenta=1 | nodo=primary | Saldo nuevo=1750.00
+2026-04-27 19:46:31,941 | INFO | app.services.audit_service | FISICO | SALIDA_CAJERO | cuenta=1 | nodo=primary | Sesion cerrada
+2026-04-27 19:46:31,941 | INFO | app.services.audit_service | LOGICO | LOGOUT_OK | cuenta=1 | nodo=primary | Sesion finalizada
+2026-04-27 19:46:49,474 | INFO | app.services.audit_service | FISICO | INGRESO_CUENTA_Y_PIN | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-27 19:46:49,474 | INFO | app.services.audit_service | LOGICO | LOGIN_OK | cuenta=1 | nodo=primary | Sesion abierta desde ATM-LOCAL
+2026-04-27 19:46:51,172 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-27 19:46:51,172 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=1 | nodo=primary | Saldo actual consultado
+2026-04-27 19:47:00,033 | INFO | app.services.audit_service | FISICO | SOLICITUD_RETIRO | cuenta=1 | nodo=primary | Monto=1000
+2026-04-27 19:47:00,034 | INFO | app.services.audit_service | LOGICO | RETIRO_OK | cuenta=1 | nodo=primary | Saldo nuevo=750.00
+2026-04-27 19:47:13,308 | INFO | app.services.audit_service | FISICO | SALIDA_CAJERO | cuenta=1 | nodo=primary | Sesion cerrada
+2026-04-27 19:47:13,309 | INFO | app.services.audit_service | LOGICO | LOGOUT_OK | cuenta=1 | nodo=primary | Sesion finalizada
+2026-04-27 19:47:52,464 | INFO | app.services.audit_service | FISICO | INGRESO_CUENTA_Y_PIN | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-27 19:47:52,464 | INFO | app.services.audit_service | LOGICO | LOGIN_OK | cuenta=1 | nodo=primary | Sesion abierta desde ATM-LOCAL
+2026-04-27 19:47:54,514 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-27 19:47:54,515 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=1 | nodo=primary | Saldo actual consultado
+2026-04-27 19:52:05,872 | INFO | app.services.audit_service | FISICO | INGRESO_CUENTA_Y_PIN | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-27 19:52:05,872 | INFO | app.services.audit_service | LOGICO | LOGIN_OK | cuenta=1 | nodo=primary | Sesion abierta desde ATM-LOCAL
+2026-04-27 19:52:07,347 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-27 19:52:07,347 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=1 | nodo=primary | Saldo actual consultado
+2026-04-27 19:52:10,717 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-27 19:52:10,717 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=1 | nodo=primary | Saldo actual consultado
+2026-04-27 19:57:40,247 | INFO | app.services.audit_service | FISICO | INGRESO_CUENTA_Y_PIN | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-27 19:57:40,247 | INFO | app.services.audit_service | LOGICO | LOGIN_OK | cuenta=1 | nodo=primary | Sesion abierta desde ATM-LOCAL
+2026-04-27 19:57:43,020 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-27 19:57:43,020 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=1 | nodo=primary | Saldo actual consultado
+2026-04-27 19:57:55,617 | INFO | app.services.audit_service | FISICO | SOLICITUD_RETIRO | cuenta=1 | nodo=primary | Monto=2500
+2026-04-27 19:57:55,617 | INFO | app.services.audit_service | LOGICO | RETIRO_OK | cuenta=1 | nodo=primary | Saldo nuevo=1500.00
+2026-04-27 19:58:03,810 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-27 19:58:03,810 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=1 | nodo=primary | Saldo actual consultado
+2026-04-27 19:58:35,926 | INFO | app.services.audit_service | FISICO | SALIDA_CAJERO | cuenta=1 | nodo=primary | Sesion cerrada
+2026-04-27 19:58:35,926 | INFO | app.services.audit_service | LOGICO | LOGOUT_OK | cuenta=1 | nodo=primary | Sesion finalizada
+2026-04-27 19:58:46,442 | INFO | app.services.audit_service | FISICO | INGRESO_CUENTA_Y_PIN | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-27 19:58:46,442 | INFO | app.services.audit_service | LOGICO | LOGIN_OK | cuenta=1 | nodo=primary | Sesion abierta desde ATM-LOCAL
+2026-04-27 19:59:00,707 | INFO | app.services.audit_service | FISICO | INGRESO_CUENTA_Y_PIN | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-27 19:59:00,708 | INFO | app.services.audit_service | LOGICO | LOGIN_OK | cuenta=1 | nodo=primary | Sesion abierta desde ATM-LOCAL
+2026-04-27 19:59:01,973 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-27 19:59:01,973 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=1 | nodo=primary | Saldo actual consultado
+2026-04-27 19:59:32,942 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-27 19:59:32,942 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=1 | nodo=primary | Saldo actual consultado
+2026-04-27 19:59:36,507 | INFO | app.services.audit_service | FISICO | SALIDA_CAJERO | cuenta=1 | nodo=primary | Sesion cerrada
+2026-04-27 19:59:36,507 | INFO | app.services.audit_service | LOGICO | LOGOUT_OK | cuenta=1 | nodo=primary | Sesion finalizada
+2026-04-27 20:00:03,721 | INFO | app.services.audit_service | FISICO | INGRESO_CUENTA_Y_PIN | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-27 20:00:03,721 | INFO | app.services.audit_service | LOGICO | LOGIN_OK | cuenta=1 | nodo=primary | Sesion abierta desde ATM-LOCAL
+2026-04-27 20:00:07,369 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-27 20:00:07,370 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=1 | nodo=primary | Saldo actual consultado
+2026-04-27 20:00:17,261 | INFO | app.services.audit_service | FISICO | SOLICITUD_RETIRO | cuenta=1 | nodo=primary | Monto=2000
+2026-04-27 20:00:17,262 | INFO | app.services.audit_service | LOGICO | RETIRO_OK | cuenta=1 | nodo=primary | Saldo nuevo=2000.00
+2026-04-27 20:00:23,804 | INFO | app.services.audit_service | FISICO | SALIDA_CAJERO | cuenta=1 | nodo=primary | Sesion cerrada
+2026-04-27 20:00:23,805 | INFO | app.services.audit_service | LOGICO | LOGOUT_OK | cuenta=1 | nodo=primary | Sesion finalizada
+2026-04-27 20:00:40,139 | INFO | app.services.audit_service | FISICO | INGRESO_CUENTA_Y_PIN | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-27 20:00:40,139 | INFO | app.services.audit_service | LOGICO | LOGIN_OK | cuenta=1 | nodo=primary | Sesion abierta desde ATM-LOCAL
+2026-04-27 20:00:42,633 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-27 20:00:42,634 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=1 | nodo=primary | Saldo actual consultado
+2026-04-27 20:00:52,126 | INFO | app.services.audit_service | FISICO | SALIDA_CAJERO | cuenta=1 | nodo=primary | Sesion cerrada
+2026-04-27 20:00:52,126 | INFO | app.services.audit_service | LOGICO | LOGOUT_OK | cuenta=1 | nodo=primary | Sesion finalizada
+2026-04-27 20:01:42,099 | INFO | app.services.audit_service | FISICO | INGRESO_CUENTA_Y_PIN | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-27 20:01:42,099 | INFO | app.services.audit_service | LOGICO | LOGIN_OK | cuenta=1 | nodo=primary | Sesion abierta desde ATM-LOCAL
+2026-04-29 19:35:04,925 | WARNING | app.core.database | Fallo conexion a DB: 'cryptography' package is required for sha256_password or caching_sha2_password auth methods
+2026-04-29 19:35:04,926 | WARNING | app.core.database | Fallo conexion a DB: (pymysql.err.OperationalError) (1130, "Host '172.18.0.1' is not allowed to connect to this MySQL server")
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-04-29 19:35:14,590 | WARNING | app.core.database | Fallo conexion a DB: 'cryptography' package is required for sha256_password or caching_sha2_password auth methods
+2026-04-29 19:35:14,591 | WARNING | app.core.database | Fallo conexion a DB: (pymysql.err.OperationalError) (1130, "Host '172.18.0.1' is not allowed to connect to this MySQL server")
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-04-29 19:47:09,483 | INFO | app.services.audit_service | FISICO | INGRESO_CUENTA_Y_PIN | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-29 19:47:09,484 | INFO | app.services.audit_service | LOGICO | LOGIN_OK | cuenta=1 | nodo=primary | Sesion abierta desde ATM-LOCAL
+2026-04-29 19:47:16,837 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-29 19:47:16,837 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=1 | nodo=primary | Saldo actual consultado
+2026-04-29 19:47:24,533 | INFO | app.services.audit_service | FISICO | SALIDA_CAJERO | cuenta=1 | nodo=primary | Sesion cerrada
+2026-04-29 19:47:24,534 | INFO | app.services.audit_service | LOGICO | LOGOUT_OK | cuenta=1 | nodo=primary | Sesion finalizada
+2026-04-29 20:08:19,695 | INFO | app.services.audit_service | FISICO | INGRESO_CUENTA_Y_PIN | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-29 20:08:19,696 | INFO | app.services.audit_service | LOGICO | LOGIN_OK | cuenta=1 | nodo=primary | Sesion abierta desde ATM-LOCAL
+2026-04-29 20:08:21,405 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-29 20:08:21,405 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=1 | nodo=primary | Saldo actual consultado
+2026-04-29 20:08:28,457 | INFO | app.services.audit_service | FISICO | SALIDA_CAJERO | cuenta=1 | nodo=primary | Sesion cerrada
+2026-04-29 20:08:28,457 | INFO | app.services.audit_service | LOGICO | LOGOUT_OK | cuenta=1 | nodo=primary | Sesion finalizada
+2026-04-29 20:09:26,536 | INFO | app.services.audit_service | FISICO | INGRESO_CUENTA_Y_PIN | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-29 20:09:26,537 | INFO | app.services.audit_service | LOGICO | LOGIN_OK | cuenta=1 | nodo=primary | Sesion abierta desde ATM-LOCAL
+2026-04-29 20:09:28,944 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-29 20:09:28,944 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=1 | nodo=primary | Saldo actual consultado
+2026-04-29 20:09:56,976 | INFO | app.services.audit_service | FISICO | SOLICITUD_RETIRO | cuenta=1 | nodo=primary | Monto=500
+2026-04-29 20:09:56,977 | INFO | app.services.audit_service | LOGICO | RETIRO_OK | cuenta=1 | nodo=primary | Saldo nuevo=1500.00
+2026-04-29 20:10:06,226 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-29 20:10:06,226 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=1 | nodo=primary | Saldo actual consultado
+2026-04-29 20:12:09,402 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-29 20:12:09,403 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=1 | nodo=primary | Saldo actual consultado
+2026-04-29 21:36:56,026 | INFO | app.services.audit_service | FISICO | INGRESO_CUENTA_Y_PIN | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-29 21:36:56,026 | INFO | app.services.audit_service | LOGICO | LOGIN_OK | cuenta=1 | nodo=primary | Sesion abierta desde ATM-LOCAL
+2026-04-29 21:37:04,016 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-29 21:37:04,016 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=1 | nodo=primary | Saldo actual consultado
+2026-04-29 21:38:16,342 | INFO | app.services.audit_service | FISICO | SALIDA_CAJERO | cuenta=1 | nodo=primary | Sesion cerrada
+2026-04-29 21:38:16,342 | INFO | app.services.audit_service | LOGICO | LOGOUT_OK | cuenta=1 | nodo=primary | Sesion finalizada
+2026-04-29 21:38:55,459 | INFO | app.services.audit_service | FISICO | INGRESO_CUENTA_Y_PIN | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-29 21:38:55,459 | INFO | app.services.audit_service | LOGICO | LOGIN_OK | cuenta=1 | nodo=primary | Sesion abierta desde ATM-LOCAL
+2026-04-29 21:38:56,879 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-29 21:38:56,879 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=1 | nodo=primary | Saldo actual consultado
+2026-04-29 21:38:59,205 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-29 21:38:59,205 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=1 | nodo=primary | Saldo actual consultado
+2026-04-29 21:39:16,134 | INFO | app.services.audit_service | FISICO | SALIDA_CAJERO | cuenta=1 | nodo=primary | Sesion cerrada
+2026-04-29 21:39:16,134 | INFO | app.services.audit_service | LOGICO | LOGOUT_OK | cuenta=1 | nodo=primary | Sesion finalizada
+2026-04-29 21:39:46,273 | INFO | app.services.audit_service | FISICO | INGRESO_CUENTA_Y_PIN | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-29 21:39:46,274 | INFO | app.services.audit_service | LOGICO | LOGIN_OK | cuenta=1 | nodo=primary | Sesion abierta desde ATM-LOCAL
+2026-04-29 21:48:59,172 | INFO | app.services.audit_service | FISICO | INGRESO_CUENTA_Y_PIN | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-29 21:48:59,172 | INFO | app.services.audit_service | LOGICO | LOGIN_OK | cuenta=1 | nodo=primary | Sesion abierta desde ATM-LOCAL
+2026-04-29 21:49:22,065 | INFO | app.services.audit_service | FISICO | SALIDA_CAJERO | cuenta=1 | nodo=primary | Sesion cerrada
+2026-04-29 21:49:22,065 | INFO | app.services.audit_service | LOGICO | LOGOUT_OK | cuenta=1 | nodo=primary | Sesion finalizada
+2026-04-29 21:49:30,886 | INFO | app.services.audit_service | LOGICO | PIN_INVALIDO | cuenta=1 | nodo=primary | Intento fallido desde ATM-LOCAL
+2026-04-29 21:49:34,941 | INFO | app.services.audit_service | FISICO | INGRESO_CUENTA_Y_PIN | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-29 21:49:34,942 | INFO | app.services.audit_service | LOGICO | LOGIN_OK | cuenta=1 | nodo=primary | Sesion abierta desde ATM-LOCAL
+2026-04-29 21:50:02,389 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-29 21:50:02,389 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=1 | nodo=primary | Saldo actual consultado
+2026-04-29 21:50:10,323 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-29 21:50:10,324 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=1 | nodo=primary | Saldo actual consultado
+2026-04-29 22:09:22,140 | INFO | app.services.audit_service | FISICO | INGRESO_CUENTA_Y_PIN | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-29 22:09:22,140 | INFO | app.services.audit_service | LOGICO | LOGIN_OK | cuenta=1 | nodo=primary | Sesion abierta desde ATM-LOCAL
+2026-04-29 22:15:08,327 | INFO | app.services.audit_service | FISICO | INGRESO_CUENTA_Y_PIN | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-29 22:15:08,327 | INFO | app.services.audit_service | LOGICO | LOGIN_OK | cuenta=1 | nodo=primary | Sesion abierta desde ATM-LOCAL
+2026-04-29 22:15:13,311 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-29 22:15:13,311 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=1 | nodo=primary | Saldo actual consultado
+2026-04-29 22:22:34,753 | INFO | app.services.audit_service | FISICO | INGRESO_CUENTA_Y_PIN | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-29 22:22:34,753 | INFO | app.services.audit_service | LOGICO | LOGIN_OK | cuenta=1 | nodo=primary | Sesion abierta desde ATM-LOCAL
+2026-04-29 22:23:53,700 | INFO | app.services.audit_service | FISICO | INGRESO_CUENTA_Y_PIN | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-29 22:23:53,700 | INFO | app.services.audit_service | LOGICO | LOGIN_OK | cuenta=1 | nodo=primary | Sesion abierta desde ATM-LOCAL
+2026-04-29 22:25:15,679 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-29 22:25:15,680 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=1 | nodo=primary | Saldo actual consultado
+2026-04-29 22:25:22,562 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-29 22:25:22,562 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=1 | nodo=primary | Saldo actual consultado
+2026-04-29 23:24:11,035 | INFO | app.services.audit_service | FISICO | INGRESO_CUENTA_Y_PIN | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-29 23:24:11,035 | INFO | app.services.audit_service | LOGICO | LOGIN_OK | cuenta=1 | nodo=primary | Sesion abierta desde ATM-LOCAL
+2026-04-29 23:24:21,775 | INFO | app.services.audit_service | FISICO | SALIDA_CAJERO | cuenta=1 | nodo=primary | Sesion cerrada
+2026-04-29 23:24:21,775 | INFO | app.services.audit_service | LOGICO | LOGOUT_OK | cuenta=1 | nodo=primary | Sesion finalizada
+2026-04-29 23:24:33,233 | INFO | app.services.audit_service | FISICO | INGRESO_CUENTA_Y_PIN | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-29 23:24:33,233 | INFO | app.services.audit_service | LOGICO | LOGIN_OK | cuenta=1 | nodo=primary | Sesion abierta desde ATM-LOCAL
+2026-04-29 23:26:17,773 | INFO | app.services.audit_service | FISICO | INGRESO_CUENTA_Y_PIN | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-29 23:26:17,773 | INFO | app.services.audit_service | LOGICO | LOGIN_OK | cuenta=1 | nodo=primary | Sesion abierta desde ATM-LOCAL
+2026-04-29 23:26:19,371 | INFO | app.services.audit_service | FISICO | SALIDA_CAJERO | cuenta=1 | nodo=primary | Sesion cerrada
+2026-04-29 23:26:19,372 | INFO | app.services.audit_service | LOGICO | LOGOUT_OK | cuenta=1 | nodo=primary | Sesion finalizada
+2026-04-29 23:34:43,409 | INFO | app.services.audit_service | FISICO | INGRESO_CUENTA_Y_PIN | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-29 23:34:43,409 | INFO | app.services.audit_service | LOGICO | LOGIN_OK | cuenta=1 | nodo=primary | Sesion abierta desde ATM-LOCAL
+2026-04-29 23:35:05,609 | INFO | app.services.audit_service | FISICO | SALIDA_CAJERO | cuenta=1 | nodo=primary | Sesion cerrada
+2026-04-29 23:35:05,609 | INFO | app.services.audit_service | LOGICO | LOGOUT_OK | cuenta=1 | nodo=primary | Sesion finalizada
+2026-04-29 23:35:30,488 | INFO | app.services.audit_service | FISICO | INGRESO_CUENTA_Y_PIN | cuenta=2 | nodo=primary | ATM=ATM-LOCAL
+2026-04-29 23:35:30,488 | INFO | app.services.audit_service | LOGICO | LOGIN_OK | cuenta=2 | nodo=primary | Sesion abierta desde ATM-LOCAL
+2026-04-29 23:35:36,485 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=2 | nodo=primary | ATM=ATM-LOCAL
+2026-04-29 23:35:36,486 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=2 | nodo=primary | Saldo actual consultado
+2026-04-29 23:35:50,242 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=2 | nodo=primary | ATM=ATM-LOCAL
+2026-04-29 23:35:50,242 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=2 | nodo=primary | Saldo actual consultado
+2026-04-29 23:35:54,370 | INFO | app.services.audit_service | FISICO | SALIDA_CAJERO | cuenta=2 | nodo=primary | Sesion cerrada
+2026-04-29 23:35:54,370 | INFO | app.services.audit_service | LOGICO | LOGOUT_OK | cuenta=2 | nodo=primary | Sesion finalizada
+2026-04-29 23:37:28,804 | INFO | app.services.audit_service | FISICO | INGRESO_CUENTA_Y_PIN | cuenta=2 | nodo=primary | ATM=ATM-LOCAL
+2026-04-29 23:37:28,804 | INFO | app.services.audit_service | LOGICO | LOGIN_OK | cuenta=2 | nodo=primary | Sesion abierta desde ATM-LOCAL
+2026-04-29 23:37:33,732 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=2 | nodo=primary | ATM=ATM-LOCAL
+2026-04-29 23:37:33,733 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=2 | nodo=primary | Saldo actual consultado
+2026-04-29 23:40:14,234 | INFO | app.services.audit_service | FISICO | INGRESO_CUENTA_Y_PIN | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-29 23:40:14,234 | INFO | app.services.audit_service | LOGICO | LOGIN_OK | cuenta=1 | nodo=primary | Sesion abierta desde ATM-LOCAL
+2026-04-29 23:40:35,363 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-29 23:40:35,363 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=1 | nodo=primary | Saldo actual consultado
+2026-04-29 23:42:02,802 | INFO | app.services.audit_service | FISICO | INGRESO_CUENTA_Y_PIN | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-29 23:42:02,802 | INFO | app.services.audit_service | LOGICO | LOGIN_OK | cuenta=1 | nodo=primary | Sesion abierta desde ATM-LOCAL
+2026-04-29 23:44:50,811 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-29 23:44:50,811 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=1 | nodo=primary | Saldo actual consultado
+2026-04-29 23:44:57,974 | INFO | app.services.audit_service | FISICO | SALIDA_CAJERO | cuenta=1 | nodo=primary | Sesion cerrada
+2026-04-29 23:44:57,974 | INFO | app.services.audit_service | LOGICO | LOGOUT_OK | cuenta=1 | nodo=primary | Sesion finalizada
+2026-04-29 23:45:09,915 | INFO | app.services.audit_service | FISICO | INGRESO_CUENTA_Y_PIN | cuenta=2 | nodo=primary | ATM=ATM-LOCAL
+2026-04-29 23:45:09,915 | INFO | app.services.audit_service | LOGICO | LOGIN_OK | cuenta=2 | nodo=primary | Sesion abierta desde ATM-LOCAL
+2026-04-29 23:45:28,563 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=2 | nodo=primary | ATM=ATM-LOCAL
+2026-04-29 23:45:28,563 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=2 | nodo=primary | Saldo actual consultado
+2026-04-29 23:52:33,193 | INFO | app.services.audit_service | FISICO | INGRESO_CUENTA_Y_PIN | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-29 23:52:33,193 | INFO | app.services.audit_service | LOGICO | LOGIN_OK | cuenta=1 | nodo=primary | Sesion abierta desde ATM-LOCAL
+2026-04-29 23:52:38,438 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-29 23:52:38,438 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=1 | nodo=primary | Saldo actual consultado
+2026-04-29 23:52:42,791 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-29 23:52:42,791 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=1 | nodo=primary | Saldo actual consultado
+2026-04-29 23:52:57,998 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-29 23:52:57,999 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=1 | nodo=primary | Saldo actual consultado
+2026-04-29 23:53:08,306 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-29 23:53:08,306 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=1 | nodo=primary | Saldo actual consultado
+2026-04-29 23:53:23,000 | INFO | app.services.audit_service | FISICO | SOLICITUD_RETIRO | cuenta=1 | nodo=primary | Monto=500
+2026-04-29 23:53:23,001 | INFO | app.services.audit_service | LOGICO | RETIRO_OK | cuenta=1 | nodo=primary | Saldo nuevo=1000.00
+2026-04-29 23:53:36,969 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-29 23:53:36,970 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=1 | nodo=primary | Saldo actual consultado
+2026-04-30 00:00:07,818 | INFO | app.services.audit_service | FISICO | INGRESO_CUENTA_Y_PIN | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-30 00:00:07,818 | INFO | app.services.audit_service | LOGICO | LOGIN_OK | cuenta=1 | nodo=primary | Sesion abierta desde ATM-LOCAL
+2026-04-30 00:00:12,271 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-30 00:00:12,271 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=1 | nodo=primary | Saldo actual consultado
+2026-04-30 00:00:16,146 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-30 00:00:16,146 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=1 | nodo=primary | Saldo actual consultado
+2026-04-30 00:00:19,699 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-30 00:00:19,699 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=1 | nodo=primary | Saldo actual consultado
+2026-04-30 00:00:41,324 | INFO | app.services.audit_service | FISICO | INGRESO_CUENTA_Y_PIN | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-30 00:00:41,324 | INFO | app.services.audit_service | LOGICO | LOGIN_OK | cuenta=1 | nodo=primary | Sesion abierta desde ATM-LOCAL
+2026-04-30 00:00:44,464 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-30 00:00:44,464 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=1 | nodo=primary | Saldo actual consultado
+2026-04-30 00:00:47,067 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-30 00:00:47,068 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=1 | nodo=primary | Saldo actual consultado
+2026-04-30 00:00:55,358 | INFO | app.services.audit_service | FISICO | SOLICITUD_RETIRO | cuenta=1 | nodo=primary | Monto=50
+2026-04-30 00:00:55,359 | INFO | app.services.audit_service | LOGICO | RETIRO_OK | cuenta=1 | nodo=primary | Saldo nuevo=950.00
+2026-04-30 00:01:03,036 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-30 00:01:03,037 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=1 | nodo=primary | Saldo actual consultado
+2026-04-30 00:01:09,778 | INFO | app.services.audit_service | FISICO | SALIDA_CAJERO | cuenta=1 | nodo=primary | Sesion cerrada
+2026-04-30 00:01:09,778 | INFO | app.services.audit_service | LOGICO | LOGOUT_OK | cuenta=1 | nodo=primary | Sesion finalizada
+2026-04-30 00:01:22,006 | INFO | app.services.audit_service | FISICO | INGRESO_CUENTA_Y_PIN | cuenta=2 | nodo=primary | ATM=ATM-LOCAL
+2026-04-30 00:01:22,006 | INFO | app.services.audit_service | LOGICO | LOGIN_OK | cuenta=2 | nodo=primary | Sesion abierta desde ATM-LOCAL
+2026-04-30 00:01:29,460 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=2 | nodo=primary | ATM=ATM-LOCAL
+2026-04-30 00:01:29,461 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=2 | nodo=primary | Saldo actual consultado
+2026-04-30 00:01:34,271 | INFO | app.services.audit_service | FISICO | SOLICITUD_RETIRO | cuenta=2 | nodo=primary | Monto=50
+2026-04-30 00:01:34,271 | INFO | app.services.audit_service | LOGICO | RETIRO_OK | cuenta=2 | nodo=primary | Saldo nuevo=4950.00
+2026-04-30 00:01:44,728 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=2 | nodo=primary | ATM=ATM-LOCAL
+2026-04-30 00:01:44,728 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=2 | nodo=primary | Saldo actual consultado
+2026-04-30 00:01:54,402 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=2 | nodo=primary | ATM=ATM-LOCAL
+2026-04-30 00:01:54,402 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=2 | nodo=primary | Saldo actual consultado
+2026-04-30 00:02:14,510 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=2 | nodo=primary | ATM=ATM-LOCAL
+2026-04-30 00:02:14,511 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=2 | nodo=primary | Saldo actual consultado
+2026-04-30 00:04:23,227 | INFO | app.services.audit_service | FISICO | INGRESO_CUENTA_Y_PIN | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-30 00:04:23,227 | INFO | app.services.audit_service | LOGICO | LOGIN_OK | cuenta=1 | nodo=primary | Sesion abierta desde ATM-LOCAL
+2026-04-30 00:04:27,307 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-30 00:04:27,307 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=1 | nodo=primary | Saldo actual consultado
+2026-04-30 00:05:25,930 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-30 00:05:25,931 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=1 | nodo=primary | Saldo actual consultado
+2026-04-30 00:07:58,340 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-30 00:07:58,340 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=1 | nodo=primary | Saldo actual consultado
+2026-04-30 00:08:00,672 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-04-30 00:08:00,672 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=1 | nodo=primary | Saldo actual consultado
+2026-04-30 00:08:22,511 | INFO | app.services.audit_service | FISICO | SOLICITUD_RETIRO | cuenta=1 | nodo=primary | Monto=50
+2026-04-30 00:08:22,511 | INFO | app.services.audit_service | LOGICO | RETIRO_OK | cuenta=1 | nodo=primary | Saldo nuevo=900.00
+2026-04-30 00:08:47,780 | INFO | app.services.audit_service | FISICO | SALIDA_CAJERO | cuenta=1 | nodo=primary | Sesion cerrada
+2026-04-30 00:08:47,780 | INFO | app.services.audit_service | LOGICO | LOGOUT_OK | cuenta=1 | nodo=primary | Sesion finalizada
+2026-04-30 00:09:03,854 | INFO | app.services.audit_service | FISICO | INGRESO_CUENTA_Y_PIN | cuenta=2 | nodo=primary | ATM=ATM-LOCAL
+2026-04-30 00:09:03,854 | INFO | app.services.audit_service | LOGICO | LOGIN_OK | cuenta=2 | nodo=primary | Sesion abierta desde ATM-LOCAL
+2026-04-30 00:09:21,397 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=2 | nodo=primary | ATM=ATM-LOCAL
+2026-04-30 00:09:21,397 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=2 | nodo=primary | Saldo actual consultado
+2026-04-30 00:09:26,539 | INFO | app.services.audit_service | FISICO | SOLICITUD_RETIRO | cuenta=2 | nodo=primary | Monto=300
+2026-04-30 00:09:26,539 | INFO | app.services.audit_service | LOGICO | RETIRO_OK | cuenta=2 | nodo=primary | Saldo nuevo=4650.00
+2026-04-30 00:09:31,519 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=2 | nodo=primary | ATM=ATM-LOCAL
+2026-04-30 00:09:31,519 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=2 | nodo=primary | Saldo actual consultado
+2026-04-30 00:09:36,832 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=2 | nodo=primary | ATM=ATM-LOCAL
+2026-04-30 00:09:36,833 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=2 | nodo=primary | Saldo actual consultado
+2026-04-30 00:09:41,661 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=2 | nodo=primary | ATM=ATM-LOCAL
+2026-04-30 00:09:41,661 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=2 | nodo=primary | Saldo actual consultado
+2026-04-30 00:09:58,086 | INFO | app.services.audit_service | FISICO | SALIDA_CAJERO | cuenta=2 | nodo=primary | Sesion cerrada
+2026-04-30 00:09:58,086 | INFO | app.services.audit_service | LOGICO | LOGOUT_OK | cuenta=2 | nodo=primary | Sesion finalizada
+2026-05-13 18:58:37,199 | INFO | app.services.audit_service | FISICO | INGRESO_CUENTA_Y_PIN | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-05-13 18:58:37,200 | INFO | app.services.audit_service | LOGICO | LOGIN_OK | cuenta=1 | nodo=primary | Sesion abierta desde ATM-LOCAL
+2026-05-13 18:58:50,443 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-05-13 18:58:50,443 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=1 | nodo=primary | Saldo actual consultado
+2026-05-13 18:58:54,088 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-05-13 18:58:54,088 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=1 | nodo=primary | Saldo actual consultado
+2026-05-13 18:59:10,417 | INFO | app.services.audit_service | FISICO | SOLICITUD_RETIRO | cuenta=1 | nodo=primary | Monto=50
+2026-05-13 18:59:10,417 | INFO | app.services.audit_service | LOGICO | RETIRO_OK | cuenta=1 | nodo=primary | Saldo nuevo=850.00
+2026-05-13 18:59:18,648 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-05-13 18:59:18,648 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=1 | nodo=primary | Saldo actual consultado
+2026-05-13 19:00:02,933 | INFO | app.services.audit_service | FISICO | SALIDA_CAJERO | cuenta=1 | nodo=primary | Sesion cerrada
+2026-05-13 19:00:02,933 | INFO | app.services.audit_service | LOGICO | LOGOUT_OK | cuenta=1 | nodo=primary | Sesion finalizada
+2026-05-13 19:00:26,552 | INFO | app.services.audit_service | LOGICO | PIN_INVALIDO | cuenta=1 | nodo=primary | Intento fallido desde ATM-LOCAL
+2026-05-13 19:01:05,349 | INFO | app.services.audit_service | FISICO | INGRESO_CUENTA_Y_PIN | cuenta=2 | nodo=primary | ATM=ATM-LOCAL
+2026-05-13 19:01:05,349 | INFO | app.services.audit_service | LOGICO | LOGIN_OK | cuenta=2 | nodo=primary | Sesion abierta desde ATM-LOCAL
+2026-05-13 19:01:14,282 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=2 | nodo=primary | ATM=ATM-LOCAL
+2026-05-13 19:01:14,282 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=2 | nodo=primary | Saldo actual consultado
+2026-05-13 19:01:19,776 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=2 | nodo=primary | ATM=ATM-LOCAL
+2026-05-13 19:01:19,776 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=2 | nodo=primary | Saldo actual consultado
+2026-05-13 19:01:53,761 | INFO | app.services.audit_service | FISICO | SOLICITUD_RETIRO | cuenta=2 | nodo=primary | Monto=50
+2026-05-13 19:01:53,761 | INFO | app.services.audit_service | LOGICO | RETIRO_OK | cuenta=2 | nodo=primary | Saldo nuevo=4600.00
+2026-05-13 19:07:56,774 | INFO | app.services.audit_service | FISICO | INGRESO_CUENTA_Y_PIN | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-05-13 19:07:56,774 | INFO | app.services.audit_service | LOGICO | LOGIN_OK | cuenta=1 | nodo=primary | Sesion abierta desde ATM-LOCAL
+2026-05-13 19:08:27,618 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-05-13 19:08:27,619 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=1 | nodo=primary | Saldo actual consultado
+2026-05-13 19:08:37,831 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-05-13 19:08:37,831 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=1 | nodo=primary | Saldo actual consultado
+2026-05-13 19:09:45,182 | INFO | app.services.audit_service | FISICO | SOLICITUD_RETIRO | cuenta=1 | nodo=primary | Monto=50
+2026-05-13 19:09:45,182 | INFO | app.services.audit_service | LOGICO | RETIRO_OK | cuenta=1 | nodo=primary | Saldo nuevo=800.00
+2026-05-13 19:10:30,079 | INFO | app.services.audit_service | FISICO | SALIDA_CAJERO | cuenta=1 | nodo=primary | Sesion cerrada
+2026-05-13 19:10:30,079 | INFO | app.services.audit_service | LOGICO | LOGOUT_OK | cuenta=1 | nodo=primary | Sesion finalizada
+2026-05-13 20:10:07,711 | INFO | app.services.audit_service | FISICO | INGRESO_CUENTA_Y_PIN | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-05-13 20:10:07,712 | INFO | app.services.audit_service | LOGICO | LOGIN_OK | cuenta=1 | nodo=primary | Sesion abierta desde ATM-LOCAL
+2026-05-13 20:10:12,639 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-05-13 20:10:12,640 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=1 | nodo=primary | Saldo actual consultado
+2026-05-13 20:15:57,138 | INFO | app.services.audit_service | FISICO | INGRESO_CUENTA_Y_PIN | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-05-13 20:15:57,138 | INFO | app.services.audit_service | LOGICO | LOGIN_OK | cuenta=1 | nodo=primary | Sesion abierta desde ATM-LOCAL
+2026-05-13 20:16:04,276 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-05-13 20:16:04,276 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=1 | nodo=primary | Saldo actual consultado
+2026-05-13 20:16:13,035 | INFO | app.services.audit_service | FISICO | SOLICITUD_RETIRO | cuenta=1 | nodo=primary | Monto=50
+2026-05-13 20:16:13,035 | INFO | app.services.audit_service | LOGICO | RETIRO_OK | cuenta=1 | nodo=primary | Saldo nuevo=750.00
+2026-05-13 20:24:13,466 | INFO | app.services.audit_service | FISICO | INGRESO_CUENTA_Y_PIN | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-05-13 20:24:13,466 | INFO | app.services.audit_service | LOGICO | LOGIN_OK | cuenta=1 | nodo=primary | Sesion abierta desde ATM-LOCAL
+2026-05-13 20:24:25,804 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-05-13 20:24:25,804 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=1 | nodo=primary | Saldo actual consultado
+2026-05-13 20:24:28,197 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-05-13 20:24:28,197 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=1 | nodo=primary | Saldo actual consultado
+2026-05-13 20:24:37,987 | INFO | app.services.audit_service | FISICO | SOLICITUD_RETIRO | cuenta=1 | nodo=primary | Monto=50
+2026-05-13 20:24:37,987 | INFO | app.services.audit_service | LOGICO | RETIRO_OK | cuenta=1 | nodo=primary | Saldo nuevo=700.00
+2026-05-13 20:25:08,276 | INFO | app.services.audit_service | FISICO | INGRESO_CUENTA_Y_PIN | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-05-13 20:25:08,276 | INFO | app.services.audit_service | LOGICO | LOGIN_OK | cuenta=1 | nodo=primary | Sesion abierta desde ATM-LOCAL
+2026-05-13 20:25:11,096 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-05-13 20:25:11,096 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=1 | nodo=primary | Saldo actual consultado
+2026-05-13 20:25:13,399 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-05-13 20:25:13,400 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=1 | nodo=primary | Saldo actual consultado
+2026-05-13 20:25:17,308 | INFO | app.services.audit_service | FISICO | SOLICITUD_RETIRO | cuenta=1 | nodo=primary | Monto=50
+2026-05-13 20:25:17,308 | INFO | app.services.audit_service | LOGICO | RETIRO_OK | cuenta=1 | nodo=primary | Saldo nuevo=650.00
+2026-05-13 20:30:12,799 | INFO | app.services.audit_service | FISICO | INGRESO_CUENTA_Y_PIN | cuenta=2 | nodo=primary | ATM=ATM-LOCAL
+2026-05-13 20:30:12,799 | INFO | app.services.audit_service | LOGICO | LOGIN_OK | cuenta=2 | nodo=primary | Sesion abierta desde ATM-LOCAL
+2026-05-13 20:30:31,091 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=2 | nodo=primary | ATM=ATM-LOCAL
+2026-05-13 20:30:31,091 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=2 | nodo=primary | Saldo actual consultado
+2026-05-13 20:30:41,999 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=2 | nodo=primary | ATM=ATM-LOCAL
+2026-05-13 20:30:41,999 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=2 | nodo=primary | Saldo actual consultado
+2026-05-13 20:30:46,853 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=2 | nodo=primary | ATM=ATM-LOCAL
+2026-05-13 20:30:46,853 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=2 | nodo=primary | Saldo actual consultado
+2026-05-13 20:30:50,922 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=2 | nodo=primary | ATM=ATM-LOCAL
+2026-05-13 20:30:50,923 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=2 | nodo=primary | Saldo actual consultado
+2026-05-13 20:30:54,530 | INFO | app.services.audit_service | FISICO | SOLICITUD_RETIRO | cuenta=2 | nodo=primary | Monto=50
+2026-05-13 20:30:54,530 | INFO | app.services.audit_service | LOGICO | RETIRO_OK | cuenta=2 | nodo=primary | Saldo nuevo=4550.00
+2026-05-13 20:32:14,038 | INFO | app.services.audit_service | LOGICO | PIN_INVALIDO | cuenta=2 | nodo=primary | Intento fallido desde ATM-LOCAL
+2026-05-13 20:32:19,591 | INFO | app.services.audit_service | FISICO | INGRESO_CUENTA_Y_PIN | cuenta=2 | nodo=primary | ATM=ATM-LOCAL
+2026-05-13 20:32:19,592 | INFO | app.services.audit_service | LOGICO | LOGIN_OK | cuenta=2 | nodo=primary | Sesion abierta desde ATM-LOCAL
+2026-05-13 20:32:23,151 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=2 | nodo=primary | ATM=ATM-LOCAL
+2026-05-13 20:32:23,151 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=2 | nodo=primary | Saldo actual consultado
+2026-05-13 20:32:26,146 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=2 | nodo=primary | ATM=ATM-LOCAL
+2026-05-13 20:32:26,146 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=2 | nodo=primary | Saldo actual consultado
+2026-05-13 20:32:29,669 | INFO | app.services.audit_service | FISICO | SOLICITUD_RETIRO | cuenta=2 | nodo=primary | Monto=50
+2026-05-13 20:32:29,669 | INFO | app.services.audit_service | LOGICO | RETIRO_OK | cuenta=2 | nodo=primary | Saldo nuevo=4500.00
+2026-05-13 20:32:53,150 | INFO | app.services.audit_service | FISICO | SALIDA_CAJERO | cuenta=2 | nodo=primary | Sesion cerrada
+2026-05-13 20:32:53,150 | INFO | app.services.audit_service | LOGICO | LOGOUT_OK | cuenta=2 | nodo=primary | Sesion finalizada
+2026-05-13 20:38:30,133 | INFO | app.services.audit_service | FISICO | INGRESO_CUENTA_Y_PIN | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-05-13 20:38:30,134 | INFO | app.services.audit_service | LOGICO | LOGIN_OK | cuenta=1 | nodo=primary | Sesion abierta desde ATM-LOCAL
+2026-05-13 20:38:33,211 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-05-13 20:38:33,212 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=1 | nodo=primary | Saldo actual consultado
+2026-05-13 20:38:36,419 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-05-13 20:38:36,420 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=1 | nodo=primary | Saldo actual consultado
+2026-05-13 20:38:40,288 | INFO | app.services.audit_service | FISICO | SOLICITUD_RETIRO | cuenta=1 | nodo=primary | Monto=50
+2026-05-13 20:38:40,289 | INFO | app.services.audit_service | LOGICO | RETIRO_OK | cuenta=1 | nodo=primary | Saldo nuevo=600.00
+2026-05-13 20:39:08,159 | INFO | app.services.audit_service | FISICO | SALIDA_CAJERO | cuenta=1 | nodo=primary | Sesion cerrada
+2026-05-13 20:39:08,160 | INFO | app.services.audit_service | LOGICO | LOGOUT_OK | cuenta=1 | nodo=primary | Sesion finalizada
+2026-05-13 20:41:24,232 | INFO | app.services.audit_service | FISICO | INGRESO_CUENTA_Y_PIN | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-05-13 20:41:24,232 | INFO | app.services.audit_service | LOGICO | LOGIN_OK | cuenta=1 | nodo=primary | Sesion abierta desde ATM-LOCAL
+2026-05-13 20:41:31,042 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-05-13 20:41:31,042 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=1 | nodo=primary | Saldo actual consultado
+2026-05-13 20:41:34,942 | INFO | app.services.audit_service | FISICO | SOLICITUD_RETIRO | cuenta=1 | nodo=primary | Monto=50
+2026-05-13 20:41:34,943 | INFO | app.services.audit_service | LOGICO | RETIRO_OK | cuenta=1 | nodo=primary | Saldo nuevo=550.00
+2026-05-13 20:47:11,096 | INFO | app.services.audit_service | FISICO | INGRESO_CUENTA_Y_PIN | cuenta=2 | nodo=primary | ATM=ATM-LOCAL
+2026-05-13 20:47:11,096 | INFO | app.services.audit_service | LOGICO | LOGIN_OK | cuenta=2 | nodo=primary | Sesion abierta desde ATM-LOCAL
+2026-05-13 20:47:20,965 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=2 | nodo=primary | ATM=ATM-LOCAL
+2026-05-13 20:47:20,965 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=2 | nodo=primary | Saldo actual consultado
+2026-05-13 20:47:24,901 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=2 | nodo=primary | ATM=ATM-LOCAL
+2026-05-13 20:47:24,902 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=2 | nodo=primary | Saldo actual consultado
+2026-05-13 20:47:29,361 | INFO | app.services.audit_service | FISICO | SOLICITUD_RETIRO | cuenta=2 | nodo=primary | Monto=50
+2026-05-13 20:47:29,362 | INFO | app.services.audit_service | LOGICO | RETIRO_OK | cuenta=2 | nodo=primary | Saldo nuevo=4450.00
+2026-05-13 20:48:11,445 | INFO | app.services.audit_service | FISICO | INGRESO_CUENTA_Y_PIN | cuenta=2 | nodo=primary | ATM=ATM-LOCAL
+2026-05-13 20:48:11,445 | INFO | app.services.audit_service | LOGICO | LOGIN_OK | cuenta=2 | nodo=primary | Sesion abierta desde ATM-LOCAL
+2026-05-13 20:48:17,709 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=2 | nodo=primary | ATM=ATM-LOCAL
+2026-05-13 20:48:17,709 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=2 | nodo=primary | Saldo actual consultado
+2026-05-13 20:48:21,519 | INFO | app.services.audit_service | FISICO | SOLICITUD_RETIRO | cuenta=2 | nodo=primary | Monto=50
+2026-05-13 20:48:21,520 | INFO | app.services.audit_service | LOGICO | RETIRO_OK | cuenta=2 | nodo=primary | Saldo nuevo=4400.00
+2026-05-13 20:48:32,791 | INFO | app.services.audit_service | FISICO | SALIDA_CAJERO | cuenta=2 | nodo=primary | Sesion cerrada
+2026-05-13 20:48:32,792 | INFO | app.services.audit_service | LOGICO | LOGOUT_OK | cuenta=2 | nodo=primary | Sesion finalizada
+2026-05-20 20:29:12,071 | INFO | app.services.audit_service | FISICO | INGRESO_CUENTA_Y_PIN | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-05-20 20:29:12,072 | INFO | app.services.audit_service | LOGICO | LOGIN_OK | cuenta=1 | nodo=primary | Sesion abierta desde ATM-LOCAL
+2026-05-20 20:29:20,326 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-05-20 20:29:20,326 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=1 | nodo=primary | Saldo actual consultado
+2026-05-20 20:29:24,471 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-05-20 20:29:24,471 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=1 | nodo=primary | Saldo actual consultado
+2026-05-20 20:29:38,815 | INFO | app.services.audit_service | FISICO | SALIDA_CAJERO | cuenta=1 | nodo=primary | Sesion cerrada
+2026-05-20 20:29:38,815 | INFO | app.services.audit_service | LOGICO | LOGOUT_OK | cuenta=1 | nodo=primary | Sesion finalizada
+2026-05-20 20:42:36,509 | INFO | app.services.audit_service | FISICO | INGRESO_CUENTA_Y_PIN | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-05-20 20:42:36,509 | INFO | app.services.audit_service | LOGICO | LOGIN_OK | cuenta=1 | nodo=primary | Sesion abierta desde ATM-LOCAL
+2026-05-20 20:42:53,882 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-05-20 20:42:53,883 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=1 | nodo=primary | Saldo actual consultado
+2026-05-20 20:43:04,417 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-05-20 20:43:04,417 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=1 | nodo=primary | Saldo actual consultado
+2026-05-20 20:43:16,766 | INFO | app.services.audit_service | FISICO | SOLICITUD_RETIRO | cuenta=1 | nodo=primary | Monto=150
+2026-05-20 20:43:16,767 | INFO | app.services.audit_service | LOGICO | RETIRO_OK | cuenta=1 | nodo=primary | Saldo nuevo=400.00
+2026-05-20 20:43:41,420 | INFO | app.services.audit_service | FISICO | SALIDA_CAJERO | cuenta=1 | nodo=primary | Sesion cerrada
+2026-05-20 20:43:41,420 | INFO | app.services.audit_service | LOGICO | LOGOUT_OK | cuenta=1 | nodo=primary | Sesion finalizada
+2026-05-20 20:44:34,605 | INFO | app.services.audit_service | FISICO | INGRESO_CUENTA_Y_PIN | cuenta=2 | nodo=primary | ATM=ATM-LOCAL
+2026-05-20 20:44:34,605 | INFO | app.services.audit_service | LOGICO | LOGIN_OK | cuenta=2 | nodo=primary | Sesion abierta desde ATM-LOCAL
+2026-05-20 20:44:43,374 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=2 | nodo=primary | ATM=ATM-LOCAL
+2026-05-20 20:44:43,374 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=2 | nodo=primary | Saldo actual consultado
+2026-05-20 20:44:49,550 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=2 | nodo=primary | ATM=ATM-LOCAL
+2026-05-20 20:44:49,551 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=2 | nodo=primary | Saldo actual consultado
+2026-05-20 20:47:17,016 | INFO | app.services.audit_service | FISICO | SALIDA_CAJERO | cuenta=2 | nodo=primary | Sesion cerrada
+2026-05-20 20:47:17,016 | INFO | app.services.audit_service | LOGICO | LOGOUT_OK | cuenta=2 | nodo=primary | Sesion finalizada

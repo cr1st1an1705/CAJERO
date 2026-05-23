@@ -1,0 +1,42 @@
+Table cuentas {
+  id bigint [pk, increment]
+  numero_cuenta varchar(20) [unique, not null]
+  titular_nombre varchar(150) [not null]
+  pin_hash varchar(255) [not null]
+  saldo decimal(18,2) [not null, default: 0]
+  intentos_fallidos int [not null, default: 0]
+  bloqueada_hasta datetime
+  activa boolean [not null, default: true]
+}
+
+Table sesiones {
+  id bigint [pk, increment]
+  cuenta_id bigint [not null, ref: > cuentas.id]
+  token varchar(500) [not null, unique]
+  ultimo_movimiento datetime [not null]
+  activa boolean [not null, default: true]
+}
+
+Table transacciones {
+  id bigint [pk, increment]
+  cuenta_id bigint [not null, ref: > cuentas.id]
+  tipo varchar(20) [not null]
+  monto decimal(18,2) [not null, default: 0]
+  saldo_anterior decimal(18,2) [not null, default: 0]
+  saldo_nuevo decimal(18,2) [not null, default: 0]
+  descripcion text
+  atm_origen varchar(50) [not null, default: 'ATM-LOCAL']
+  fecha datetime [not null]
+}
+
+Table auditorias {
+  id bigint [pk, increment]
+  cuenta_id bigint [ref: > cuentas.id]
+  nivel varchar(20) [not null, default: 'INFO']
+  categoria varchar(20) [not null]
+  accion varchar(100) [not null]
+  detalle text
+  nodo_bd varchar(30)
+  ip_origen varchar(50)
+  fecha datetime [not null]
+}
