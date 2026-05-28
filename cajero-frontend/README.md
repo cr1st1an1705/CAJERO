@@ -1,16 +1,32 @@
-# React + Vite
+# Cajero Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Frontend del cajero ATM construido con React + Vite.
 
-Currently, two official plugins are available:
+## Scripts
+- `npm run dev`: desarrollo local.
+- `npm run build`: build de produccion.
+- `npm run start`: servir build en modo produccion (Railway).
+- `npm run lint`: validacion de estilo.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Variable de entorno
+Crear `.env` a partir de `.env.example`:
 
-## React Compiler
+- `VITE_API_BASE_URL`: URL publica del backend (sin slash final).
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Ejemplo:
 
-## Expanding the ESLint configuration
+`VITE_API_BASE_URL=https://cajero-backend.up.railway.app`
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Despliegue en Railway
+
+### Archivos clave
+- `Procfile`
+- `.env.example`
+- `package.json`
+
+### Flujo esperado en Railway
+1. Instalar dependencias.
+2. Ejecutar `npm run build`.
+3. Ejecutar `npm run start`.
+
+El frontend queda accesible en el puerto dinamico de Railway (`$PORT`).

@@ -442,3 +442,9 @@
 2026-05-20 20:44:49,551 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=2 | nodo=primary | Saldo actual consultado
 2026-05-20 20:47:17,016 | INFO | app.services.audit_service | FISICO | SALIDA_CAJERO | cuenta=2 | nodo=primary | Sesion cerrada
 2026-05-20 20:47:17,016 | INFO | app.services.audit_service | LOGICO | LOGOUT_OK | cuenta=2 | nodo=primary | Sesion finalizada
+2026-05-27 14:31:34,179 | INFO | app.services.audit_service | FISICO | INGRESO_CUENTA_Y_PIN | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-05-27 14:31:34,179 | INFO | app.services.audit_service | LOGICO | LOGIN_OK | cuenta=1 | nodo=primary | Sesion abierta desde ATM-LOCAL
+2026-05-27 14:31:38,063 | INFO | app.services.audit_service | FISICO | SELECCION_CONSULTA_SALDO | cuenta=1 | nodo=primary | ATM=ATM-LOCAL
+2026-05-27 14:31:38,063 | INFO | app.services.audit_service | LOGICO | CONSULTA_SALDO | cuenta=1 | nodo=primary | Saldo actual consultado
+2026-05-27 14:31:43,776 | INFO | app.services.audit_service | FISICO | SOLICITUD_RETIRO | cuenta=1 | nodo=primary | Monto=50
+2026-05-27 14:31:43,776 | INFO | app.services.audit_service | LOGICO | RETIRO_OK | cuenta=1 | nodo=primary | Saldo nuevo=350.00

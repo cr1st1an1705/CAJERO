@@ -8,24 +8,3 @@ PyJWT==2.10.1
 passlib[bcrypt]==1.7.4
 bcrypt==4.0.1
 pydantic-settings==2.10.1
-cryptography
-bcrypt==4.0.1
-
------------------------------------------------------------------------------------------------------------------
-comando para levantar frontend: npm run dev
-
-comando para levantar backend: uvicorn app.main:app --reload --port 8000
-
-*****************************************************************************************************************
-
-comando para docker: python scripts/crear_cuenta_demo.py
-Numero de cuenta: 67890
-Titular: Demo Monetaria
-PIN de 4 digitos: 5678
-Tipo de cuenta (AHORRO / MONETARIA): MONETARIA
-
-comando para agregar saldo: sudo docker exec mysql-primary-cajero mysql -uroot -proot cajero_atm -e "
-UPDATE cuentas SET saldo = 5000 WHERE numero_cuenta = '67890';
-SELECT numero_cuenta, titular_nombre, saldo, tipo_cuenta FROM cuentas;
-"
---------------------------------------------------------------------------------------------------------------
