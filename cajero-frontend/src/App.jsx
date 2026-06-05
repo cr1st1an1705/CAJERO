@@ -108,11 +108,19 @@ function generateReceiptPDF(amount, balance, accountNumber) {
 }
 
 function WelcomeScreen({ accountNumber, onChangeAccount, onInsertCard, status }) {
+  const now = new Date()
+  const hora = now.toLocaleTimeString('es-GT', { hour: '2-digit', minute: '2-digit' })
+  const fecha = now.toLocaleDateString('es-GT', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })
+
   return (
     <div className="screen">
-      <h1>Cajero Automático</h1>
+      <div className="welcome-datetime-top">
+        <span className="welcome-time">{hora}</span>
+        <span className="welcome-date">{fecha}</span>
+      </div>
+      <h1 className="welcome-title">BANCO ATM</h1>
       <p className="screen-subtitle">Ingresa tu número de cuenta para comenzar</p>
-      <label htmlFor="numero-cuenta" className="atm-screen__label">Número de cuenta</label>
+      <label htmlFor="numero-cuenta" className="atm-screen__label">Número de tarjeta</label>
       <input
         id="numero-cuenta"
         className="screen-input"

@@ -49,7 +49,7 @@ while true; do
         -u "$APP_USER" \
         -p"$APP_PASSWORD" \
         --single-transaction \
-        --set-gtid-purged=OFF \
+        --set-gtid-purged=OFF --no-tablespaces \
         "$APP_DB" > /tmp/cajero_failback.sql
 
       mysql \
